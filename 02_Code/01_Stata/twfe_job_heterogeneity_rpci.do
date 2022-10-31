@@ -53,16 +53,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -81,16 +77,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 
 	
@@ -109,16 +101,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -137,16 +125,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -165,16 +149,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 		
 		
 		
@@ -193,16 +173,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 		
 
 
@@ -221,16 +197,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 		
 
 
@@ -249,16 +221,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -277,16 +245,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 		
 
 
@@ -305,16 +269,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -334,16 +294,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 
 
 	
@@ -362,16 +318,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -407,16 +359,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -435,16 +383,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -463,16 +407,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -491,16 +431,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -519,16 +455,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -547,16 +479,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
@@ -575,16 +503,12 @@ foreach depvar in `vars' {
 	estadd scalar dep_mean = r(mean)
 	
 	* Number of workers in the sample used in the regression
-	egen tag_idnss = tag(idnss) if reg_sample == 1
-	quietly summ tag_idnss
-	estadd scalar unique_idnss = r(sum)
-	drop tag_idnss
+	distinct idnss if reg_sample == 1
+	estadd scalar unique_idnss = r(ndistinct)
 	
 	* Number of firms in the sample used in the regression
-	egen tag_idrfc = tag(idrfc) if reg_sample == 1
-	quietly summ tag_idrfc
-	estadd scalar unique_idrfc = r(sum)
-	drop tag_idrfc
+	distinct idrfc if reg_sample == 1
+	estadd scalar unique_idrfc = r(ndistinct)
 	
 	
 	
