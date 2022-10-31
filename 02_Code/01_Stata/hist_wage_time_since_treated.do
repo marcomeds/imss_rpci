@@ -57,7 +57,7 @@ replace time_since_treated = time_since_treated - 1
 * Create graph
 graph bar zero_diff, over(time_since_treated) ///
       bar(1, color("0 69 134")) ///
-	  ylabel(0(0.2)1) ///
+	  ylabel(0(0.1)1) ///
 	  title("") b1title("Months since registering for the RPCI") ///
 	  ytitle("Percentage of workers" "without change in wage") ///
 	  scheme(s2mono) graphregion(color(white))
