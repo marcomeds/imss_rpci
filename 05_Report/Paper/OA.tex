@@ -1,0 +1,152 @@
+%  \documentclass[oneside,11pt]{article}
+
+% \input{preamble.tex}
+% %%% HELPER CODE FOR DEALING WITH EXTERNAL REFERENCES
+% \usepackage{xr}
+% \makeatletter
+% \newcommand*{\addFileDependency}[1]{
+%   \typeout{(#1)}
+%   \@addtofilelist{#1}
+%   \IfFileExists{#1}{}{\typeout{No file #1.}}
+% }
+% \makeatother
+
+
+% \newcommand*{\myexternaldocument}[1]{
+%     \externaldocument{#1}
+%     \addFileDependency{#1.tex}
+%     \addFileDependency{#1.aux}
+% }
+
+% %\myexternaldocument{OA}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT
+% \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% APPENDIX 
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{section}{0}
+\pagenumbering{gobble}
+
+
+\begin{center}
+	\LARGE IMSS RPCI \\[0.5em]
+	\Large{Appendix $-$ For Online Publication} \\[1em]
+	\large \author{Eduardo Alcaraz \and Gabriela López \and Luis Martínez \and Marco Medina \and Enrique Seira}
+\end{center}
+
+\appendix
+\pagenumbering{arabic}
+\renewcommand\thefigure{OA-\arabic{figure}}
+\renewcommand\thetable{OA-\arabic{table}}
+\renewcommand*{\thepage}{OA - \arabic{page}}
+\renewcommand\thesection{Appendix \Alph{section}.}
+\renewcommand\thesubsection{\Alph{section}.\arabic{subsection}}
+
+%\renewcommand{\cftparskip}{0em} % NOT NEEDED
+\renewcommand\cftsecdotsep{\cftdotsep}
+\renewcommand\cftsubsecdotsep{\cftnodots}
+\renewcommand{\cftsecnumwidth}{6em}
+ \renewcommand{\cftpnumalign}{r}
+%\renewcommand{\cftsecleader}{\normalfont\cftdotfill{\cftsecdotsep}}
+
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}\hspace{1.8em}}
+%\renewcommand{\cftsecpagefont}{20em}
+%\renewcommand{\cftfignumwidth}{6em}
+%\renewcommand{\cfttabnumwidth}{3.3em}
+
+%\tableofcontents
+\etocdepthtag.toc{mtappendix}
+\etocsettagdepth{mtchapter}{none}
+\etocsettagdepth{mtappendix}{subsection}
+
+\setstretch{0.9}
+%\renewcommand\contentsname{} % the empty name
+
+\begingroup
+\let\clearpage\relax
+%\vspace{-1.5em} % the removed space. Set as appropriate
+\tableofcontents
+\endgroup
+
+\clearpage
+
+\section{ RPCI}
+\vspace{.2in}
+
+\begin{figure}[H]
+    \caption{RPCI flyers}
+    \label{rpci_flyers}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{RPCI flyer titled "Does my employer has me registered at IMSS?"}
+    \includegraphics[width=\textwidth]{04_Figures/rpci_app/rpci_flyer_3.jpeg}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{RPCI flyer titled "Digital services for a healthy environment"}
+    \includegraphics[width=\textwidth]{04_Figures/rpci_app/rpci_flyer_2.jpeg}
+    \end{subfigure}
+
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent Flyers circulated by the Mexican Institute of Social Security (IMSS) for the RPCI. Both flyers explain how you can track and access your job register information, such as wage and firm you are registered at, if you register for the RPCI.
+}
+
+\clearpage
+
+\begin{figure}[H]
+    \caption{Registering for the RPCI}
+    \label{rpci_register}
+    \begin{center}
+    
+    \begin{subfigure}{0.9\textwidth}
+    \includegraphics[width=\textwidth]{04_Figures/rpci_app/rpci_register.png}
+    \end{subfigure}
+
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent Diagram shows how to register for the RPCI within the IMSS Digital app. The worker registers only once to access the RPCI, using his Unique Population Registry Key (CURP) and email address.
+}
+
+\clearpage
+
+\begin{figure}[H]
+    \caption{RPCI example}
+    \label{rpci_example}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{RPCI within the IMSS Digital app}
+    \includegraphics[width=\textwidth]{04_Figures/rpci_app/rpci_2.png}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{RPCI PDF file}
+    \includegraphics[width=\textwidth]{04_Figures/rpci_app/rpci_3.png}
+    \end{subfigure}
+    
+
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent Figure (a) shows the IMSS Digital app, where once the worker is registered for the RPCI, the worker can download their report in PDF or receive it via email. Figure (b) shows an example of the PDF for the RPCI. The report includes the worker job registered information, such as wage and the firm the worker is registered at.
+}
+
+%\clearpage
+
+%\bibliographystyle{authordate1}
+%\bibliographystyle{amsalpha}
+%\bibliographystyle{AER}
+
+%\bibliography{References}
+
+
+
+
+% \end{document}
