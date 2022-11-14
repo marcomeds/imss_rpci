@@ -166,24 +166,23 @@ This leads to a matched sample with $N$ pairs.
 \clearpage
 
 \begin{table}[H]
-    \caption{RPCI effect on wage for workers with a unique employer}
+    \caption{RPCI effect on wage for workers with a unique employer and workers always employed}
     \label{twfe_wage_same_idrfc}
     \begin{center}
-    \scriptsize{\input{03_Tables/muestra_1porciento/twfe_wage_same_idrfc}}
+    \scriptsize{\input{03_Tables/muestra_1porciento/twfe_wage_same}}
     %\textit{Do file: twfe_rpci.do}
     \end{center}
 \end{table}
 
 \scriptsize{
-\noindent \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022, restricted to those workers with a unique employer across the 33 months of the sample. Regressions on columns (a) use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions on columns (b) include dummies for each state interacted with a set of dummies for each quarterly period. Regressions on columns (c) include dummies for each wage decile of the wage distribution during 2020, interacted with a set of dummies for each quarterly period. Regressions on columns (d) include dummies for each state and dummies for each wage decile of the wage distribution during 2020, both interacted with dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
-\todo[inline]{Marco: update this table with the same format as \ref{twfe_wage}}
+\noindent This table looks into the RPCI effect for workers with a single employer and workers always employed. Each column conditions on a workers job history through out the sample. Column (1) conditions to workers with a single employer through out the sample (these workers can be discharged and enrolled back as long as it's by the same employer). Column (2) conditions to workers always employed through out the sample (these workers can change employers as long as they are always enrolled at IMSS). \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 }
 
 
 \clearpage
 
 \begin{table}[H]
-    \caption{RPCI effect on discharges and job changes}
+    \caption{RPCI effect on being enrolled, enrollments, discharges, wage and job changes}
     \label{twfe_job}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_job}}
@@ -192,7 +191,7 @@ This leads to a matched sample with $N$ pairs.
 \end{table}
 
 \scriptsize{
-\noindent \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and has a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\noindent \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Enrolled} is a dummy where 1 means the worker had a job registered during period $t$. \textit{Enrollment} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t-1$. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. \textit{Wage Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered with a different wage during period $t+1$. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 }
 
 \clearpage
@@ -207,7 +206,7 @@ This leads to a matched sample with $N$ pairs.
 \end{table}
 
 \scriptsize{
-\noindent \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Job Change Higher Wage}, \textit{Job Change Lower Wage}, and \textit{Job Change Same Wage} are a dummies where 1 means the worker had a job registered during period $t$, and has a job registered at a different firm during period $t+1$, and their new wage is higher, lower or the same as in the former job. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\noindent \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Job Change Higher Wage}, \textit{Job Change Lower Wage}, and \textit{Job Change Same Wage} are a dummies where 1 means the worker had a job registered during period $t$, and had a job registered at a different firm during period $t+1$, and their new wage is higher, lower or the same as in the former job. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 \todo[inline]{Marco: I have to create a similar table, but for Discharge instead of Job Change. Q: how to define higher / lower / same wage if you were discharged and we won't observe your wage for the next period?}
 }
 
@@ -220,7 +219,7 @@ This leads to a matched sample with $N$ pairs.
     \label{twfe_wage_hetero_wrk_char}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_wage_hetero_wrk_char}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
@@ -230,15 +229,29 @@ This leads to a matched sample with $N$ pairs.
 \clearpage
 
 \begin{table}[H]
-    \caption{RPCI effect on discharge and job change by worker characteristics}
+    \caption{RPCI effect on being enrolled, enrollments, and discharges by worker characteristics}
     \label{twfe_job_hetero_wrk_char}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_job_hetero_wrk_char}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
-\noindent This table looks into heterogeneity in the RPCI effect by worker characteristics. Each column conditions on a worker characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) and (2) condition on the worker gender. Column (3) conditions on workers hired through outsourcing. Column (4) conditions on temporary workers. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and has a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\noindent This table looks into heterogeneity in the RPCI effect by worker characteristics. Each column conditions on a worker characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) and (2) condition on the worker gender. Column (3) conditions on workers hired through outsourcing. Column (4) conditions on temporary workers. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Enrolled} is a dummy where 1 means the worker had a job registered during period $t$. \textit{Enrollment} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t-1$. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+}
+
+\clearpage
+
+\begin{table}[H]
+    \caption{RPCI effect on wage change and job change by worker characteristics}
+    \label{twfe_change_hetero_wrk_char}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_1porciento/twfe_change_hetero_wrk_char}}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
+    \end{center}
+\end{table}
+\scriptsize{
+\noindent This table looks into heterogeneity in the RPCI effect by worker characteristics. Each column conditions on a worker characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) and (2) condition on the worker gender. Column (3) conditions on workers hired through outsourcing. Column (4) conditions on temporary workers. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Wage Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered with a different wage during period $t+1$. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 }
 
 \clearpage
@@ -250,7 +263,7 @@ This leads to a matched sample with $N$ pairs.
     \label{twfe_wage_hetero_firm_char}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_wage_hetero_firm_char}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
@@ -264,15 +277,33 @@ This leads to a matched sample with $N$ pairs.
 \begin{landscape}
 
 \begin{table}[H]
-    \caption{RPCI effect on discharge and job change by firm characteristics}
+    \caption{RPCI effect on being enrolled, enrollments, and discharges by firm characteristics}
     \label{twfe_job_hetero_firm_char}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_job_hetero_firm_char}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
+    \end{center}
+\end{table}
+\tiny{
+\noindent This table looks into heterogeneity in the RPCI effect by firm characteristics. Each column conditions on firm characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) to (6) condition on the firm industry: (1) transformation industry, (2) construction industry, (3) commerce, (4) communications and transportation, (5) services for firms and people, (6) communal and social services. Columns (7) and (8) condition on firm size categories: (7) small firms (less than 250 workers), (8) big firms (more than 1000 workers). \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Enrolled} is a dummy where 1 means the worker had a job registered during period $t$. \textit{Enrollment} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t-1$. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+}
+
+\end{landscape}
+
+\clearpage
+
+\begin{landscape}
+
+\begin{table}[H]
+    \caption{RPCI effect on wage change and job change by firm characteristics}
+    \label{twfe_change_hetero_firm_char}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_1porciento/twfe_change_hetero_firm_char}}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
-\noindent This table looks into heterogeneity in the RPCI effect by firm characteristics. Each column conditions on firm characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) to (6) condition on the firm industry: (1) transformation industry, (2) construction industry, (3) commerce, (4) communications and transportation, (5) services for firms and people, (6) communal and social services. Columns (7) and (8) condition on firm size categories: (7) small firms (less than 250 workers), (8) big firms (more than 1000 workers). \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and has a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\noindent This table looks into heterogeneity in the RPCI effect by firm characteristics. Each column conditions on firm characteristics at baseline, during 2020, previous to the RPCI launch. Columns (1) to (6) condition on the firm industry: (1) transformation industry, (2) construction industry, (3) commerce, (4) communications and transportation, (5) services for firms and people, (6) communal and social services. Columns (7) and (8) condition on firm size categories: (7) small firms (less than 250 workers), (8) big firms (more than 1000 workers). \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Wage Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered with a different wage during period $t+1$. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 }
 
 \end{landscape}
@@ -286,7 +317,7 @@ This leads to a matched sample with $N$ pairs.
     \label{twfe_wage_hetero_firm_size}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_wage_hetero_firm_size}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
@@ -300,15 +331,33 @@ This leads to a matched sample with $N$ pairs.
 \begin{landscape}
 
 \begin{table}[H]
-    \caption{RPCI effect on discharge and job change by firm size}
+    \caption{RPCI effect on being enrolled, enrollments, and discharges by firm size}
     \label{twfe_job_hetero_firm_size}
     \begin{center}
     \scriptsize{\input{03_Tables/muestra_1porciento/twfe_job_hetero_firm_size}}
-    %\textit{Do file: twfe_rpci.do}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
+    \end{center}
+\end{table}
+\tiny{
+\noindent This table looks into heterogeneity in the RPCI effect by firm size. Each column conditions on firm size at baseline, during 2020, previous to the RPCI launch: (1) 1 job, (2) 2 to 5 jobs, (3) 6 to 50 jobs, (4) 51 to 250 jobs, (5) 251 to 500 jobs, (6) 501 to 1000 jobs, (7) more than 1000 jobs. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Enrolled} is a dummy where 1 means the worker had a job registered during period $t$. \textit{Enrollment} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t-1$. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+}
+
+\end{landscape}
+
+\clearpage
+
+\begin{landscape}
+
+\begin{table}[H]
+    \caption{RPCI effect on wage change and job change by firm size}
+    \label{twfe_change_hetero_firm_size}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_1porciento/twfe_change_hetero_firm_size}}
+    %\textit{Do file: twfe_rpci_heterogeneity.do}
     \end{center}
 \end{table}
 \scriptsize{
-\noindent This table looks into heterogeneity in the RPCI effect by firm size. Each column conditions on firm size at baseline, during 2020, previous to the RPCI launch: (1) 1 job, (2) 2 to 5 jobs, (3) 6 to 50 jobs, (4) 51 to 250 jobs, (5) 251 to 500 jobs, (6) 501 to 1000 jobs, (7) more than 1000 jobs. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Discharge} is a dummy where 1 means the worker had a job registered during period $t$, but didn't have one during period $t+1$. \textit{Permanent Discharge} is a dummy where 1 means the worker had a register during period $t$, but never had a job registered again for the rest of the months in the sample. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and has a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\noindent This table looks into heterogeneity in the RPCI effect by firm size. Each column conditions on firm size at baseline, during 2020, previous to the RPCI launch: (1) 1 job, (2) 2 to 5 jobs, (3) 6 to 50 jobs, (4) 51 to 250 jobs, (5) 251 to 500 jobs, (6) 501 to 1000 jobs, (7) more than 1000 jobs. \textit{Sample:} 1\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. \textit{Wage Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered with a different wage during period $t+1$. \textit{Job Change} is a dummy where 1 means the worker had a job registered during period $t$, and had a job registered at a different firm during period $t+1$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
 }
 
 \end{landscape}
@@ -361,6 +410,15 @@ This leads to a matched sample with $N$ pairs.
     \end{subfigure}
     
     \begin{subfigure}{0.49\textwidth}
+    \caption{Effect on being enrolled}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_alta_chaisemartin.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Effect on enrollment}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_alta_cierre_chaisemartin.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
     \caption{Effect on discharge}
     \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_baja_cierre_chaisemartin.pdf}
     \end{subfigure}
@@ -369,11 +427,30 @@ This leads to a matched sample with $N$ pairs.
     \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_baja_permanente_chaisemartin.pdf}
     \end{subfigure}
     
+    %\textit{Do file: did_multiplegt_rpci.do}
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators.
+}
+
+\clearpage
+
+\begin{figure}[H]
+    \ContinuedFloat
+    \caption{(Continued) Event studies - RPCI effect}
+    \label{event_study_cont}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Effect on wage change}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_sal_diff_chaisemartin.pdf}
+    \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
     \caption{Effect on job change}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_cambio_cierre_chaisemartin.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_cambio_cierre_chaisemartin.pdf}
     \end{subfigure}
-    
+
     %\textit{Do file: did_multiplegt_rpci.do}
     \end{center}
 \end{figure}
@@ -470,6 +547,8 @@ This leads to a matched sample with $N$ pairs.
 \noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. Each point in the graph corresponds to the estimated regression coefficient where the sample conditions the treatment group by the cohort of register for the RPCI. All regressions have the same control group, meaning all samples include the workers who never registered for the RPCI. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month, and include dummies for each state and dummies for each wage decile of the wage distribution during 2020, both interacted with dummies for each quarterly period. 
 }
 
+\clearpage
+
 \begin{figure}[H]
     \caption{Event studies - RPCI effect on wage by cohort}
     \label{event_study_cohort}
@@ -495,7 +574,7 @@ This leads to a matched sample with $N$ pairs.
 
 \begin{figure}[H]
     \caption{Event studies - RPCI effect on wage by worker characteristics}
-    \label{event_study_worker_characteristics}
+    \label{event_study_wage_worker_characteristics}
     \begin{center}
     
     \begin{subfigure}{0.49\textwidth}
@@ -526,8 +605,40 @@ This leads to a matched sample with $N$ pairs.
 \clearpage
 
 \begin{figure}[H]
+    \caption{Event studies - RPCI effect on log wage by worker characteristics}
+    \label{event_study_log_wage_worker_characteristics}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Men}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_sexo_0.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Woman}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_sexo_1.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Outsourcing}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_outsourcing.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Temporary}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_eventual.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. Each subfigure conditions on a worker characteristics at baseline, during 2020, previous to the RPCI launch. Subfigures (a) and (b) condition on the worker gender. Subfigure (c) conditions on workers hired through outsourcing. Subfigure (d) conditions on temporary workers.
+}
+
+\clearpage
+
+\begin{figure}[H]
     \caption{Event studies - RPCI effect on wage by firm characteristics}
-    \label{event_study_firm_characteristics}
+    \label{event_study_wage_firm_characteristics}
     \begin{center}
     
     \begin{subfigure}{0.49\textwidth}
@@ -560,7 +671,7 @@ This leads to a matched sample with $N$ pairs.
 \begin{figure}[H]
     \ContinuedFloat
     \caption{(Continued) Event studies - RPCI effect on wage by firm characteristics}
-    \label{event_study_firm_characteristics_cont}
+    \label{event_study_wage_firm_characteristics_cont}
     \begin{center}
 
     \begin{subfigure}{0.49\textwidth}
@@ -592,8 +703,74 @@ This leads to a matched sample with $N$ pairs.
 \clearpage
 
 \begin{figure}[H]
+    \caption{Event studies - RPCI effect on log wage by firm characteristics}
+    \label{event_study_log_wage_firm_characteristics}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Transformation Industry}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_3.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Construction Industry}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_4.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Commerce}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_6.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Communications and Transportation}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_7.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. Each subfigure conditions on firm characteristics at baseline, during 2020, previous to the RPCI launch. Columns (a) to (f) condition on the firm industry: (a) transformation industry, (b) construction industry, (c) commerce, (d) communications and transportation, (e) services for firms and people, (f) communal and social services. Column (g) and (h) condition on firm size categories: (g) small firms (less than 250 workers), (h) big firms (more than 1000 workers).
+}
+
+\clearpage
+
+\begin{figure}[H]
+    \ContinuedFloat
+    \caption{(Continued) Event studies - RPCI effect on log wage by firm characteristics}
+    \label{event_study_log_wage_firm_characteristics_cont}
+    \begin{center}
+
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Services for Firms and People}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_8.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Social and Communal Services}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_div_final_9.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Small Firms}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_pyme.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Big Firms}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_emp_grande.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
+    \end{center}
+\end{figure}
+
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. Each subfigure conditions on firm characteristics at baseline, during 2020, previous to the RPCI launch. Subfigures (a) to (f) condition on the firm industry: (a) transformation industry, (b) construction industry, (c) commerce, (d) communications and transportation, (e) services for firms and people, (f) communal and social services. Subfigures (g) and (h) condition on firm size categories: (g) small firms (less than 250 workers), (h) big firms (more than 1000 workers).
+}
+
+\clearpage
+
+\begin{figure}[H]
     \caption{Event studies - RPCI effect on wage by firm size}
-    \label{event_study_firm_size}
+    \label{event_study_wage_firm_size}
     \begin{center}
     
     \begin{subfigure}{0.49\textwidth}
@@ -627,7 +804,7 @@ This leads to a matched sample with $N$ pairs.
 \begin{figure}[H]
     \ContinuedFloat
     \caption{(Continued) Event studies - RPCI effect on wage by firm characteristics}
-    \label{event_study_firm_size_cont}
+    \label{event_study_wage_firm_size_cont}
     \begin{center}
 
     \begin{subfigure}{0.49\textwidth}
@@ -642,6 +819,69 @@ This leads to a matched sample with $N$ pairs.
     \begin{subfigure}{0.49\textwidth}
     \caption{1000+ Jobs}
     \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_chaisemartin_firm_size_7.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
+    \end{center}
+\end{figure}
+
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators.  Each subfigure conditions on firm size at baseline, during 2020, previous to the RPCI launch: (a) 1 job, (b) 2 to 5 jobs, (c) 6 to 50 jobs, (d) 51 to 250 jobs, (e) 251 to 500 jobs, (f) 501 to 1000 jobs, (g) more than 1000 jobs.
+}
+
+\clearpage
+
+\begin{figure}[H]
+    \caption{Event studies - RPCI effect on log wage by firm size}
+    \label{event_study_log_wage_firm_size}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{1 Job}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_1.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{2 to 5 Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_2.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{6 to 50 Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_3.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{51 to 250 Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_4.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators.  Each subfigure conditions on firm size at baseline, during 2020, previous to the RPCI launch: (a) 1 job, (b) 2 to 5 jobs, (c) 6 to 50 jobs, (d) 51 to 250 jobs, (e) 251 to 500 jobs, (f) 501 to 1000 jobs, (g) more than 1000 jobs.
+}
+
+
+\clearpage
+
+\begin{figure}[H]
+    \ContinuedFloat
+    \caption{(Continued) Event studies - RPCI effect on log wage by firm characteristics}
+    \label{event_study_log_wage_firm_size_cont}
+    \begin{center}
+
+    \begin{subfigure}{0.49\textwidth}
+    \caption{251 to 500 Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_5.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{501 to 1000 Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_6.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{1000+ Jobs}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_log_sal_cierre_chaisemartin_firm_size_7.pdf}
     \end{subfigure}
     
     %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
