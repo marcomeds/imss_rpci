@@ -389,6 +389,25 @@ foreach depvar in `vars' {
 	
 	graph export "04_Figures/$muestra/event_study_`depvar'_chaisemartin_adopters_late.pdf", replace
 	
+	
+	
+	**************************
+	* Early vs Late adopters *
+	**************************
+	
+	preserve
+	drop if treated == 0
+	replace download_monthly = 0 if download_monthly >= tm(2021m11)
+	
+	did_multiplegt `depvar' download_monthly periodo_monthly rpci_vig, ///
+	robust_dynamic dynamic(6) placebo(18) breps(25) cluster(idnss) seed(541314)
+	
+	event_plot e(estimates)#e(variances), default_look ///
+		graph_opt(xtitle("Months since registering for the RPCI") ytitle("Average causal effect") ///
+		title("") xlabel(-18(2))) stub_lag(Effect_#) stub_lead(Placebo_#) together
+	
+	graph export "04_Figures/$muestra/event_study_`depvar'_chaisemartin_adopters_early_late.pdf", replace
+	restore
 }
 
 
