@@ -32,7 +32,7 @@ use "01_Data/03_Working/panel_rpci.dta", clear
 **********************************
 
 * Define variables
-local vars sal_cierre
+local vars sal_cierre log_sal_cierre
 			
 foreach depvar in `vars' {
 	
@@ -233,9 +233,6 @@ foreach depvar in `vars' {
 **********************************************
 * did_multiplegt - heterogeneity - firm size *
 **********************************************
-
-* Define variables
-local vars  sal_cierre
 			
 foreach depvar in `vars' {
 	

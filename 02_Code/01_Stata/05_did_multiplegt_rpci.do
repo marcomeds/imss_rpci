@@ -1,5 +1,5 @@
 /*******************************************************************************
-@Name: did_multiplegt_panel_rpci.do
+@Name: did_multiplegt_rpci.do
 
 @Author: Marco Medina
 
@@ -32,7 +32,8 @@ use "01_Data/03_Working/panel_rpci.dta", clear
 ******************
 
 * Define variables
-local vars  sal_cierre log_sal_cierre baja_cierre baja_permanente cambio_cierre
+local vars  sal_cierre log_sal_cierre alta alta_cierre baja_cierre baja_permanente ///
+			cambio_cierre sal_diff cambio_sal_mayor cambio_sal_menor cambio_sal_igual
 			
 foreach depvar in `vars' {
 	

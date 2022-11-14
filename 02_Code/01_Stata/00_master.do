@@ -21,3 +21,13 @@ if "`user'" == "Marco Remote" {
 	global directory "E:\DATA\IMSS"
 	cd "$directory"
 }
+
+
+*do "02_Code/01_Stata/01_clean_panel_rpci.do"
+*do "02_Code/01_Stata/03_twfe_wage_rpci.do"
+*do "02_Code/01_Stata/03_twfe_job_rpci.do"
+*do "02_Code/01_Stata/04_twfe_wage_heterogeneity_rpci.do"
+*do "02_Code/01_Stata/04_twfe_job_heterogeneity_rpci.do"
+do "02_Code/01_Stata/05_did_multiplegt_rpci.do"
+do "02_Code/01_Stata/05_did_multiplegt_heterogeneity_rpci.do"
+do "02_Code/01_Stata/hist_wage_time_since_treated.do.do"

@@ -180,7 +180,7 @@ replace time_since_treated = time_since_treated - 1
 graph bar zero_diff, over(time_since_treated) ///
       bar(1, color("197 0 11")) ///
 	  ylabel(0(0.1)1) ///
-	  title("") b1title("Months since the RPCI launch" "(February 2021)") ///
+	  title("") b1title("Months since registering for the RPCI") ///
 	  ytitle("Percentage of workers" "without change in wage") ///
 	  scheme(s2mono) graphregion(color(white))
 	  
@@ -204,7 +204,7 @@ gen perc_zero_diff = zero_diff0 - zero_diff1
 graph bar perc_zero_diff, over(time_since_treated) ///
       bar(1, color("87 157 28")) ///
 	  title("") b1title("Months since registering for the RPCI") ///
-	  ytitle("Difference between the percentage" "of workers without change in wage" "(Control - Treatment)") ///
+	  ytitle("Difference in pp." "(Control - Treatment)") ///
 	  scheme(s2mono) graphregion(color(white))
 
 graph export "04_Figures/$muestra/hist_wage_time_since_treated_diff_matched.pdf", replace

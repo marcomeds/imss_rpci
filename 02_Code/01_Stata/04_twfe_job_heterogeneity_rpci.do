@@ -43,8 +43,8 @@ foreach depvar in `vars' {
 	*******
 	
 	eststo: reghdfe `depvar' rpci_vig if sexo == 0, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
 	cluster(idnss)
 	gen reg_sample = [e(sample) == 1]
 	
@@ -67,9 +67,9 @@ foreach depvar in `vars' {
 	*********
 	
 	eststo: reghdfe `depvar' rpci_vig if sexo == 1, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -91,9 +91,9 @@ foreach depvar in `vars' {
 	***************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_outsourcing == 1, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -115,9 +115,9 @@ foreach depvar in `vars' {
 	*******************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_te == 1, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -139,9 +139,9 @@ foreach depvar in `vars' {
 	****************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 3, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -163,9 +163,9 @@ foreach depvar in `vars' {
 	****************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 4, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -187,9 +187,9 @@ foreach depvar in `vars' {
 	************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 6, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -211,9 +211,9 @@ foreach depvar in `vars' {
 	***************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 7, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -235,9 +235,9 @@ foreach depvar in `vars' {
 	***************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 8, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -259,9 +259,9 @@ foreach depvar in `vars' {
 	**************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_div_final == 9, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -284,9 +284,9 @@ foreach depvar in `vars' {
 	
 	eststo: reghdfe `depvar' rpci_vig ///
 	if base_size_cierre == 1 | size_cierre == 2 | size_cierre == 3 | size_cierre == 4, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -308,9 +308,9 @@ foreach depvar in `vars' {
 	******************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 7, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -349,9 +349,9 @@ foreach depvar in `vars' {
 	****************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 1, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	gen reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -373,9 +373,9 @@ foreach depvar in `vars' {
 	*******************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 2, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -397,9 +397,9 @@ foreach depvar in `vars' {
 	********************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 3, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -421,9 +421,9 @@ foreach depvar in `vars' {
 	**********************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 4, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -445,9 +445,9 @@ foreach depvar in `vars' {
 	***********************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 5, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -469,9 +469,9 @@ foreach depvar in `vars' {
 	************************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 6, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -493,9 +493,9 @@ foreach depvar in `vars' {
 	*********************
 	
 	eststo: reghdfe `depvar' rpci_vig if base_size_cierre == 7, ///
-	absorb(periodo idnss i.cve_ent_final#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
-	cluster(idnss) 
+	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
+	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
+	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression

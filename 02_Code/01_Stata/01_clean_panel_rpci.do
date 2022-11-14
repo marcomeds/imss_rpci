@@ -209,7 +209,8 @@ gen cambio_sal_igual = [cambio_cierre == 1 & sal_igual == 1] if !missing(cambio_
 
 
 * Create dummy for baja_permanente
-bysort idnss: egen max_periodo_alta = max(periodo_monthly) if idrfc !=.
+bysort idnss: egen max_periodo_alta_aux = max(periodo_monthly) if idrfc !=.
+bysort idnss: egen max_periodo_alta = max(max_periodo_alta_aux)
 gen baja_permanente = [baja_cierre == 1 & periodo_monthly == max_periodo_alta + 1]
 
 
