@@ -22,7 +22,7 @@ use "01_Data/03_Working/panel_rpci.dta", clear
 
 * Define variables
 local vars sal_cierre log_sal_cierre 			
-/*
+
 ********************
 * TWFE Regressions *
 ********************
@@ -180,7 +180,7 @@ foreach depvar in `vars' {
 	drop reg_sample
 	
 }
-*/
+
 
 
 ********************************************************

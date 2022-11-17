@@ -404,7 +404,7 @@ foreach depvar in `vars' {
 	
 	event_plot e(estimates)#e(variances), default_look ///
 		graph_opt(xtitle("Months since registering for the RPCI") ytitle("Average causal effect") ///
-		title("") xlabel(-18(2))) stub_lag(Effect_#) stub_lead(Placebo_#) together
+		title("") xlabel(-18(2)6)) stub_lag(Effect_#) stub_lead(Placebo_#) together
 	
 	graph export "04_Figures/$muestra/event_study_`depvar'_chaisemartin_adopters_early_late.pdf", replace
 	restore
