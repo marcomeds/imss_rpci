@@ -117,7 +117,8 @@ This leads to a matched sample with $N$ pairs.
 
 
 \clearpage
-\bibliographystyle{authordate1}
+\bibliographystyle{ecta}
+%\bibliographystyle{authordate1}
 %\bibliographystyle{amsalpha}
 %\bibliographystyle{AEA}
 
@@ -563,11 +564,16 @@ This leads to a matched sample with $N$ pairs.
     \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_chaisemartin_adopters_late.pdf}
     \end{subfigure}
     
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Early adopters using late adopters as control}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_1porciento/event_study_sal_cierre_chaisemartin_adopters_early_late.pdf}
+    \end{subfigure}
+    
     %\textit{Do file: did_multiplegt_heterogeneity_rpci.do}
     \end{center}
 \end{figure}
 \scriptsize{
-\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. Each subfigure conditions the treatment group by the cohort of register for the RPCI. Subfigure (a) conditions the treatment group to early adopters, meaning the workers who registered for the RPCI during the first nine months after the RPCI launch (February 2021 to October 2021). Subfigure (b) conditions the treatment group to late adopters, meaning the workers who registered for the RPCI during the next nine months (November 2021 to August 2022). Both subfigures have the same control group, meaning the workers who never registered for the RPCI.
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between January 2020 and August 2022. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. Each subfigure conditions the treatment group by the cohort of register for the RPCI. Subfigure (a) conditions the treatment group to early adopters, meaning the workers who registered for the RPCI during the first nine months after the RPCI launch (February 2021 to October 2021). Subfigure (b) conditions the treatment group to late adopters, meaning the workers who registered for the RPCI during the next nine months (November 2021 to August 2022). Both subfigures have the same control group, meaning the workers who never registered for the RPCI. Subfigure (c) conditions the treatment group to early adopters and uses late adopters as control group.
 }
 
 \clearpage
