@@ -73,9 +73,128 @@ Employers report to IMSS the worker's job status, such as wage earned, days work
 
 \section{Observational Analysis} \label{observational}
 
-\subsubsection{Peer Effects} \label{peer}
+\clearpage
 
-\textbf{Question:} Does 
+\subsection{Effect on Wage Volatility}
+
+\textbf{Q: Does registering for the RPCI lowers (yearly) wage volatility?}
+\\
+\textbf{A: No, it increases the yearly wage SD (around 11\% of the baseline mean), it has a very small positive effect on the number of yearly wage raises, and it has no effect on the yearly number of wage changes or cuts.}
+
+Specification:
+
+$$y_{it} = \alpha + \gamma_{i} + \theta_{t} + \beta RPCI\ Vig_{it} + \epsilon_{it}$$
+
+where:
+
+\begin{itemize}
+    \item $y_{it}$ is a yearly outcome, such as the wage standard deviation, the number of wage changes, raises or cuts during year $t$.
+    \item $\gamma_{i}$ are dummies for each worker id.
+    \item $\theta_{t}$ are dummies for each yearly period.
+    \item $RPCI\ Vig_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during year $t$ or before.
+\end{itemize}
+
+\begin{table}[H]
+    \caption{RPCI effect on wage volatility}
+    \label{sal_cierre_sd_rpci}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_10porciento/twfe_sal_yr}}
+    %\textit{Do file: sal_cierre_sd_rpci.do}
+    \end{center}
+\end{table}
+
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between 2018 and 2021. \textit{Wage SD} is the yearly wage standard deviation during year $t$. \textit{Wage Changes}, \textit{Wage Raises} and \textit{Wage Cuts} are the number of wage changes, raises and cuts during year $t$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI\ Vig_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each yearly period, and $RPCI\ Vig_{it}$ are dummies where 1 means that the worker registered for the RPCI during that year or before. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each yearly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+
+\normalsize
+
+Event Study: Yearly Wage Standard Deviation
+
+\begin{figure}[H]
+    \caption{Event studies - RPCI effect on wage volatility}
+    \label{event_study_sal_cierre_sd_yr}
+    \begin{center}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Wage SD}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sd_yr_chaisemartin.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: sal_cierre_sd_yr.do}
+    \end{center}
+\end{figure}
+\scriptsize{
+\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between 2018 and 2021. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. The figure x-axis are the years relative to the treatment or RPCI launch (2021).
+}
+
+
+
+\clearpage
+
+\subsection{Peer Effects} \label{peer}
+
+\textbf{Q: Does having someone in my firm register to the RPCI make me more likely to register?}
+\\
+\textbf{A: Yes, it increases the baseline mean by 50\%.}
+
+Specification:
+
+$$RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$$
+
+where:
+
+\begin{itemize}
+    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$
+    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+\end{itemize}
+
+\begin{table}[H]
+    \caption{Peer effect on the probability of registering to RPCI}
+    \label{peer_rpci_rfc_rpci_dum}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_rfc_rpci_dum}}
+    %\textit{Do file: peer_effects_empi_rpci.do}
+    \end{center}
+\end{table}
+
+\scriptsize{
+\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+
+\normalsize
+
+\clearpage
+
+\textbf{Q: Does having more people in my firm register to the RPCI make me more likely to register?}
+\\
+\textbf{A: Yes, the increase of having someone at my firm register to the RPCI seems to come mainly from the percentage of people at my firm that registers, not from just if someone registers.}
+
+Specification:
+
+$$RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$$
+
+where:
+
+\begin{itemize}
+    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$.
+    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+    \item $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+\end{itemize}
+
+\begin{table}[H]
+    \caption{Peer effect on the probability of registering to RPCI}
+    \label{peer_rpci_rfc_rpci_dum}
+    \begin{center}
+    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_perc_rpci_exclu}}
+    %\textit{Do file: peer_effects_empi_rpci.do}
+    \end{center}
+\end{table}
+
+\scriptsize{
+\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$, and $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+
+\normalsize
+
+\clearpage
 
 \section{Experimental Analysis} \label{experiment}
 
