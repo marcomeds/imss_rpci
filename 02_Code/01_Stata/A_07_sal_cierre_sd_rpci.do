@@ -39,8 +39,8 @@ label var sal_mayor_yr "Wage Raises"
 label var sal_menor_yr "Wage Cuts"
 
 * Define decimals for regressions		
-local dec_b = 1
-local dec_se = 1
+local dec_b = 2
+local dec_se = 2
 
 * Define variables
 local vars sal_cierre_sd_yr sal_diff_yr sal_mayor_yr sal_menor_yr
@@ -55,7 +55,7 @@ eststo clear
 foreach depvar in `vars' {
 	
 	* TWFE + (age, firm ind., state, wage decile) x year
-	eststo: reghdfe `depvar' treatment, ///
+	eststo: reghdfe `depvar' treatment if periodo_year <= 2021, ///
 	absorb(periodo_year idnss i.base_rango#i.periodo_year i.base_div_final#i.periodo_year ///
 	i.base_cve_ent_final#i.periodo_year i.base_sal_decile#i.periodo_year) ///
 	cluster(idnss)
@@ -76,8 +76,9 @@ foreach depvar in `vars' {
 	drop reg_sample
 }
 
-esttab using "03_Tables/$muestra/twfe_sal_yr.tex", replace label b(`dec_b') se(`dec_se') $star ///
-scalars("dep_mean Mean" "unique_idnss Workers" "unique_idrfc Firms")
+esttab using "03_Tables/$muestra/twfe_sal_yr.tex", replace label nonotes b(`dec_b') se(`dec_se') $star ///
+stats(N dep_mean unique_idnss unique_idrfc, fmt(%12.0fc %12.2fc %12.0fc %12.0fc) label("Observations" "Mean" "Workers" "Firms" "Period FE" "Worker ID FE" "Linear Trends FE"))
+eststo clear
 
 
 
@@ -88,7 +89,7 @@ scalars("dep_mean Mean" "unique_idnss Workers" "unique_idrfc Firms")
 foreach depvar in `vars' {
 	
 	* did_multiplegt
-	did_multiplegt `depvar' download_year periodo_year treatment, ///
+	did_multiplegt `depvar' download_year periodo_year treatment if periodo_year <= 2021, ///
 	placebo(2) breps(25) cluster(idnss) seed(541314)
 
 	event_plot e(estimates)#e(variances), default_look ///

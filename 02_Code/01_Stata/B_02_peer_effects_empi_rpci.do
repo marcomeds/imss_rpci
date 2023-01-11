@@ -156,10 +156,10 @@ eststo clear
 
 
 
-* Specification: rpci_it = \alpha + \beta * perc_rpci_exclu_it + \varepsilon
+* Specification: rpci_it = \alpha + \beta * rfc_rpci_it + \gamma * perc_rpci_exclu_it + \varepsilon
 
 	* 1) Simple
-	eststo: reghdfe rpci perc_rpci_exclu, noabsorb cluster(idnss)
+	eststo: reghdfe rpci rfc_rpci_dum perc_rpci_exclu, noabsorb cluster(idnss)
 	gen reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -187,7 +187,7 @@ eststo clear
 	
 	
 	* 2) Time FE
-	eststo: reghdfe rpci perc_rpci_exclu, absorb(periodo) cluster(idnss)
+	eststo: reghdfe rpci rfc_rpci_dum perc_rpci_exclu, absorb(periodo) cluster(idnss)
 		gen reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -215,7 +215,7 @@ eststo clear
 	
 	
 	* 3) TWFE
-	eststo: reghdfe rpci perc_rpci_exclu, absorb(periodo idnss) cluster(idnss)
+	eststo: reghdfe rpci rfc_rpci_dum perc_rpci_exclu, absorb(periodo idnss) cluster(idnss)
 	gen reg_sample = [e(sample) == 1]
 	
 	* Dependant variable mean in the sample used in the regression
@@ -242,7 +242,7 @@ eststo clear
 	drop reg_sample
 
 	* 4) TWFE + (age, firm ind., state, wage decile) x year
-	eststo: reghdfe rpci perc_rpci_exclu, ///
+	eststo: reghdfe rpci rfc_rpci_dum perc_rpci_exclu, ///
 	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
 	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter) ///
 	cluster(idnss)
@@ -271,6 +271,6 @@ eststo clear
 	
 	drop reg_sample
 
-esttab using "03_Tables/$muestra/peer_rpci_perc_rpci_exclu.tex", replace label nonotes b(`dec_b') se(`dec_se') $star ///
+esttab using "03_Tables/$muestra/peer_rpci_rfc_rpci_dum_perc_rpci_exclu.tex", replace label nonotes b(`dec_b') se(`dec_se') $star ///
 stats(N dep_mean unique_idnss unique_idrfc time_fe idnss_fe lin_fe, fmt(%12.0fc %12.3fc %12.0fc %12.0fc) label("Observations" "Mean" "Workers" "Firms" "Period FE" "Worker ID FE" "Linear Trends FE")) substitute("\_" "_")
 eststo clear

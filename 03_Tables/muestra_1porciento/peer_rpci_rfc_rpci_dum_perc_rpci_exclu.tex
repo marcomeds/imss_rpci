@@ -1,0 +1,26 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}\\
+\hline
+$RPCI_{jt}$         &       0.002\sym{***}&       0.001\sym{***}&       0.000         &      -0.000         \\
+                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+[1em]
+$RPCI_{jt}$ (\%)    &       0.055\sym{***}&       0.041\sym{***}&       0.020\sym{*}  &      -0.022\sym{***}\\
+                    &     (0.012)         &     (0.012)         &     (0.011)         &     (0.006)         \\
+[1em]
+Constant            &       0.001\sym{***}&       0.002\sym{***}&       0.002\sym{***}&       0.002\sym{***}\\
+                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+\hline
+Observations        &     370,566         &     370,566         &     360,534         &     170,139         \\
+Mean                &       0.002         &       0.002         &       0.002         &       0.002         \\
+Workers             &      51,646         &      51,646         &      41,614         &      14,073         \\
+Firms               &         765         &         765         &         749         &         722         \\
+Period FE           &          No         &         Yes         &         Yes         &         Yes         \\
+Worker ID FE        &          No         &          No         &         Yes         &         Yes         \\
+Linear Trends FE    &          No         &          No         &          No         &         Yes         \\
+\hline\hline
+\end{tabular}
+}
