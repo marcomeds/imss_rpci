@@ -1,0 +1,12 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	sal_cierre_sd_yr	sal_cierre_sd_yr	sal_cierre_sd_yr	sal_cierre_sd_yr	sal_cierre_sd_yr	sal_cierre_sd_yr
+						
+treatment	2.960***	2.960***	2.960***	2.960***	1.631	1.631
+	(1.043)	(1.043)	(1.043)	(1.043)	(1.097)	(1.097)
+Constant	35.78***	35.78***	35.78***	35.78***	37.96***	37.96***
+	(0.0121)	(0.0121)	(0.0121)	(0.0121)	(0.0127)	(0.0127)
+						
+Observations	612,221	612,221	612,221	612,221	539,323	539,323
+R-squared	0.551	0.551	0.551	0.551	0.550	0.550
+Robust standard errors in parentheses						
+*** p<0.01, ** p<0.05, * p<0.1						

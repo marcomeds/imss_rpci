@@ -1,0 +1,22 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Wage SD}&\multicolumn{1}{c}{Wage Changes}&\multicolumn{1}{c}{Wage Raises}&\multicolumn{1}{c}{Wage Cuts}\\
+\hline
+RPCI                &         2.7\sym{***}&         0.0\sym{*}  &         0.0\sym{***}&        -0.0         \\
+                    &       (0.3)         &       (0.0)         &       (0.0)         &       (0.0)         \\
+[1em]
+Constant            &        38.0\sym{***}&         2.9\sym{***}&         1.9\sym{***}&         1.1\sym{***}\\
+                    &       (0.0)         &       (0.0)         &       (0.0)         &       (0.0)         \\
+\hline
+Observations        &    10819855         &    10819855         &    10819855         &    10819855         \\
+Mean                &        38.0         &         2.9         &         1.9         &         1.1         \\
+Workers             &   2483109.0         &   2483109.0         &   2483109.0         &   2483109.0         \\
+Firms               &    526420.0         &    526420.0         &    526420.0         &    526420.0         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

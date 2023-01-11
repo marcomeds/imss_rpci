@@ -1,0 +1,12 @@
+	(1)	(2)	(3)
+VARIABLES	sal_menor_yr	sal_menor_yr	sal_menor_yr
+			
+treatment	0.00971	-0.0194	-0.0194
+	(0.0159)	(0.0166)	(0.0166)
+Constant	1.007***	1.083***	1.083***
+	(0.000184)	(0.000192)	(0.000192)
+			
+Observations	612,221	539,323	539,323
+R-squared	0.663	0.669	0.669
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

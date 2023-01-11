@@ -1,0 +1,12 @@
+	(1)	(2)	(3)
+VARIABLES	sal_mayor_yr	sal_mayor_yr	sal_mayor_yr
+			
+treatment	0.00425	-0.0166	-0.0166
+	(0.0205)	(0.0205)	(0.0205)
+Constant	1.759***	1.866***	1.866***
+	(0.000239)	(0.000238)	(0.000238)
+			
+Observations	612,221	539,323	539,323
+R-squared	0.651	0.658	0.658
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			
