@@ -1,0 +1,23 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}&\multicolumn{1}{c}{$RPCI_{it}$}\\
+\hline
+$RPCI_{jt}$         &       0.001\sym{***}&       0.001\sym{***}&       0.001\sym{***}&       0.001\sym{***}\\
+                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+[1em]
+Constant            &       0.002\sym{***}&       0.002\sym{***}&       0.002\sym{***}&       0.001\sym{***}\\
+                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+\hline
+Observations        &  35,236,692         &  35,236,692         &  34,725,600         &  24,584,149         \\
+Mean                &       0.002         &       0.002         &       0.002         &       0.002         \\
+Workers             &   3,730,501         &   3,730,501         &   3,219,409         &   1,835,671         \\
+Firms               &      96,712         &      96,712         &      95,579         &      92,444         \\
+Period FE           &          No         &         Yes         &         Yes         &         Yes         \\
+Worker ID FE        &          No         &          No         &         Yes         &         Yes         \\
+Linear Trends FE    &          No         &          No         &          No         &         Yes         \\
+\hline\hline
+\end{tabular}
+}
