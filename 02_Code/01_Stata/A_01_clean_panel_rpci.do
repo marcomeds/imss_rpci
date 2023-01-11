@@ -21,8 +21,9 @@ cd "$directory"
 ********************
 
 * Import muestra_100000_rpci_panel_24meses.csv
-*import delimited "01_Data/01_Raw/muestra_100000_rpci_panel_24meses.csv", clear
-import delimited "01_Data/01_Raw/muestra_1_1porciento_new.csv", clear
+*import delimited "01_Data/01_Raw/01_IMSS/muestra_100000_rpci_panel_24meses.csv", clear
+*import delimited "01_Data/01_Raw/01_IMSS/muestra_1_1porciento_new.csv", clear
+use "01_Data/01_Raw/01_IMSS/muestra_2018_2022_1_05porciento.dta", clear
 
 * Recode sexo as 0 if men, 1 if woman
 replace sexo = 0 if sexo == 1
@@ -63,9 +64,13 @@ format download_monthly %tm
 gen download_quarter = qofd(download_date)
 format download_quarter %tq
 
+gen download_year = year(download_date)
+
 * Replace the cohort value for those individuals that were never treated
 * Useful for did_multiplegt and csdid
 replace download_monthly = 0 if descarga == .
+replace download_quarter = 0 if descarga == .
+replace download_year = 0 if descarga == .
 drop fecha
 
 * Clean age group variable to have numeric categories
@@ -128,27 +133,27 @@ replace base_outsourcing = round(base_outsourcing)
 
 
 * Create baseline variable for numeric categoric variables
-* Keep the values of the first available observation in 2020.
-bysort idnss: egen min_periodo_alta = min(periodo_monthly) if idregistro !=.
+* Keep the values of the last available observation from 2020 and backwards
+bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idregistro !=. & periodo_year <= 2020
 
 * Baseline modality variable
-bysort idnss: gen base_mod_aux = mod if periodo_monthly == min_periodo_alta & min_periodo_alta < tm(2021m1)
+bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
 bysort idnss: egen base_mod = max(base_mod_aux)
 
 * Baseline state variable
-bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == min_periodo_alta & min_periodo_alta < tm(2021m1)
+bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
 bysort idnss: egen base_cve_ent_final = max(base_cve_ent_final_aux)
 
 * Baseline industry variable
-bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == min_periodo_alta & min_periodo_alta < tm(2021m1)
+bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
 bysort idnss: egen base_div_final = max(base_div_final_aux)
 
 * Baseline age group
-bysort idnss: gen base_rango_aux = rango if periodo_monthly == min_periodo_alta & min_periodo_alta < tm(2021m1)
+bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
 bysort idnss: egen base_rango = max(base_rango_aux)
 
 * Baseline firm size group
-bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == min_periodo_alta & min_periodo_alta < tm(2021m1)
+bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
 bysort idnss: egen base_size_cierre = max(base_size_cierre_aux)
 
 * Resort database
@@ -224,24 +229,40 @@ egen n_idrfc = total(tag), by(idnss)
 gen same_idrfc = [n_idrfc == 1]
 
 
-* Wage standard deviation during 2021
-bysort idnss: egen sal_cierre_21_aux = mean(sal_cierre) if periodo_year == 2021
-bysort idnss: egen sal_cierre_21 = max(sal_cierre_21_aux)
-bysort idnss: egen sal_cierre_sd_21_aux = sd(sal_cierre) if periodo_year == 2021
-bysort idnss: egen sal_cierre_sd_21 = max(sal_cierre_sd_21_aux)
-replace sal_cierre_sd_21 = 0 if missing(sal_cierre_sd_21) & !missing(sal_cierre_21)
+* Wage standard deviation per year
+bysort idnss periodo_year: egen sal_cierre_yr_aux = mean(sal_cierre)
+bysort idnss periodo_year: egen sal_cierre_yr = max(sal_cierre_yr_aux)
+bysort idnss periodo_year: egen sal_cierre_sd_yr_aux = sd(sal_cierre)
+bysort idnss periodo_year: egen sal_cierre_sd_yr = max(sal_cierre_sd_yr_aux)
+* Replace with zero if the worker had the same wage all year long
+replace sal_cierre_sd_yr = 0 if missing(sal_cierre_sd_yr) & !missing(sal_cierre_yr) 
 
 
-* Wage standard deviation during 2022
-bysort idnss: egen sal_cierre_22_aux = mean(sal_cierre) if periodo_year == 2022
-bysort idnss: egen sal_cierre_22 = max(sal_cierre_22_aux)
-bysort idnss: egen sal_cierre_sd_22_aux = sd(sal_cierre) if periodo_year == 2022
-bysort idnss: egen sal_cierre_sd_22 = max(sal_cierre_sd_22_aux)
-replace sal_cierre_sd_22 = 0 if missing(sal_cierre_sd_22) & !missing(sal_cierre_22)
+* Wage changes per year
+bysort idnss periodo_year: egen sal_diff_yr = total(sal_diff)
+* Replace with missing if the worker didn't have a registered wage that year
+replace sal_diff_yr = . if missing(sal_cierre_yr)
 
+* Wage raises per year
+bysort idnss periodo_year: egen sal_mayor_yr = total(sal_mayor)
+* Replace with missing if the worker didn't have a registered wage that year
+replace sal_mayor_yr = . if missing(sal_cierre_yr)
+
+* Wage cuts per year
+bysort idnss periodo_year: egen sal_menor_yr = total(sal_menor)
+* Replace with missing if the worker didn't have a registered wage that year
+replace sal_menor_yr = . if missing(sal_cierre_yr)
+
+
+
+***********************
+* Filter the database *
+***********************
+
+* Keep workers that have
 
 * Drop auxiliar dummies
-drop *_aux max_periodo_alta min_periodo_alta n_idrfc tag
+drop *_aux max_periodo_alta base_periodo_alta n_idrfc tag
 
 * Save as panel_rpci.dta
 save "01_Data/03_Working/panel_rpci.dta", replace
