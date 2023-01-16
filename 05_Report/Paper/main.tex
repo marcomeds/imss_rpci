@@ -79,7 +79,7 @@ Employers report to IMSS the worker's job status, such as wage earned, days work
 
 \textbf{Q: Does registering for the RPCI lowers (yearly) wage volatility?}
 \\
-\textbf{A: No, it increases the yearly wage SD (around 11\% of the baseline mean), it has a very small positive effect on the number of yearly wage raises, and it has no effect on the yearly number of wage changes or cuts.}
+\textbf{A: No, it increases the yearly wage SD (around 11\% of the baseline mean), and increases the number of wage changes (1.6\% of the baseline mean). The increase on wage changes come from more wage raises, and has no effect on the number of wage cuts.}
 
 Specification:
 
@@ -108,6 +108,8 @@ where:
 
 \normalsize
 
+\clearpage
+
 Event Study: Yearly Wage Standard Deviation
 
 \begin{figure}[H]
@@ -127,7 +129,7 @@ Event Study: Yearly Wage Standard Deviation
 \noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between 2018 and 2021. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. The figure x-axis are the years relative to the treatment or RPCI launch (2021).
 }
 
-
+\normalsize
 
 \clearpage
 
@@ -184,7 +186,7 @@ where:
     \caption{Peer effect on the probability of registering to RPCI}
     \label{peer_rpci_rfc_rpci_dum}
     \begin{center}
-    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_perc_rpci_exclu}}
+    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_rfc_rpci_dum_perc_rpci_exclu}}
     %\textit{Do file: peer_effects_empi_rpci.do}
     \end{center}
 \end{table}
