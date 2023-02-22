@@ -90,6 +90,12 @@ destring size_cierre, replace
 gsort idnss periodo_monthly -sal_cierre te outsourcing -dias
 duplicates drop idnss periodo_monthly, force
 
+* Keep workers that were registered at IMSS during January 2021 (a month before the RPCI launch)
+gen muestra_aux = [periodo == 202101 & idregistro != .]
+bysort idnss: egen muestra = max(muestra_aux)
+keep if muestra == 1
+drop muestra
+
 * Save as clean_panel_rpci.dta
 save "01_Data/02_Clean/clean_panel_rpci.dta", replace
 
@@ -104,52 +110,53 @@ use "01_Data/02_Clean/clean_panel_rpci.dta", clear
 
 
 * Create baseline variable for numeric variables
+* Get the mean valye of the last available observations (January 2021 & 2020).
 
 * Baseline mean wage
-bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020
+bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_sal_cierre = max(base_sal_cierre_aux)
 xtile base_sal_decile = base_sal_cierre, nq(10)
 
 * Baseline wage standard deviation
-bysort idnss: egen base_sal_cierre_sd_aux = sd(sal_cierre) if periodo_year == 2020
+bysort idnss: egen base_sal_cierre_sd_aux = sd(sal_cierre) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_sal_cierre_sd = max(base_sal_cierre_sd_aux)
 replace base_sal_cierre_sd = 0 if missing(base_sal_cierre_sd) & !missing(base_sal_cierre)
 
 * Baseline eventual job dummy
-bysort idnss: egen base_te_aux = mean(te) if periodo_year == 2020
+bysort idnss: egen base_te_aux = mean(te) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_te = max(base_te_aux)
 replace base_te = round(base_te)
 
 * Baseline government job dummy
-bysort idnss: egen base_gobierno_aux = mean(gobierno) if periodo_year == 2020
+bysort idnss: egen base_gobierno_aux = mean(gobierno) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_gobierno = max(base_gobierno_aux)
 replace base_gobierno = round(base_gobierno)
 
 * Baseline outsourcing job dummy
-bysort idnss: egen base_outsourcing_aux = mean(outsourcing) if periodo_year == 2020
+bysort idnss: egen base_outsourcing_aux = mean(outsourcing) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_outsourcing = max(base_outsourcing_aux)
 replace base_outsourcing = round(base_outsourcing)
 
 
 
 * Create baseline variable for numeric categoric variables
-* Keep the values of the last available observation from 2020 and backwards
+* Keep the values of the last available observation from January 2021 and backwards
 bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idregistro !=. & periodo_year <= 2020
 
 * Baseline modality variable
-bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_mod = max(base_mod_aux)
 
 * Baseline state variable
-bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_cve_ent_final = max(base_cve_ent_final_aux)
 
 * Baseline industry variable
-bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_div_final = max(base_div_final_aux)
 
 * Baseline age group
-bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_rango = max(base_rango_aux)
 
 * Baseline firm size group
@@ -223,11 +230,21 @@ gen baja_permanente = [baja_cierre == 1 & periodo_monthly == max_periodo_alta + 
 gen log_sal_cierre = log(sal_cierre)
 
 
+* Create sal_formal. This variable is the same as sal_cierre, but is 0 if sal_cierre is missing.
+clonevar sal_formal = sal_cierre
+replace sal_formal = 0 if missing(sal_cierre)
+
+
 * Create a dummy if you always had the same employer
 egen tag = tag(idrfc idnss)
 egen n_idrfc = total(tag), by(idnss)
 gen same_idrfc = [n_idrfc == 1]
 
+
+
+*******************
+* Yearly Database *
+*******************
 
 * Wage standard deviation per year
 bysort idnss periodo_year: egen sal_cierre_yr_aux = mean(sal_cierre)
@@ -253,16 +270,47 @@ bysort idnss periodo_year: egen sal_menor_yr = total(sal_menor)
 * Replace with missing if the worker didn't have a registered wage that year
 replace sal_menor_yr = . if missing(sal_cierre_yr)
 
+preserve
+
+	* Keep one observation per year
+	duplicates drop idnss periodo_year, force
+
+	* Keep relevant variables
+	keep idnss idrfc periodo_year download_year sal_*_yr base_*
+
+	* Create variables treatment and sal_cierre_sd. Replace with the values according to the year
+	gen treatment = 0
+	replace treatment = 1 if download_year == 2021 & periodo_year >= 2021
+	replace treatment = 1 if download_year == 2022 & periodo_year >= 2022
+	
+	* Save yearly database as yearly_panel_rpci.dta
+	save "01_Data/03_Working/yearly_panel_rpci.dta", replace
+	
+restore
+
 
 
 ***********************
 * Filter the database *
 ***********************
 
-* Keep workers that have
+* Keep observations for 2020, 2021 & 2022
+keep if periodo_year >= 2020
 
 * Drop auxiliar dummies
 drop *_aux max_periodo_alta base_periodo_alta n_idrfc tag
+
+
+
+*******************
+* Label variables *
+*******************
+
+label var rpci_vig "RPCI"
+label var sal_cierre "Wage"
+label var log_sal_cierre "Log Wage"
+label var sal_formal "Formal Wage"
+label var alta "Enrolled"
 
 * Save as panel_rpci.dta
 save "01_Data/03_Working/panel_rpci.dta", replace
