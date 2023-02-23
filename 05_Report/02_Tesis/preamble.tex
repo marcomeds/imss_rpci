@@ -44,6 +44,8 @@
 \epstopdfDeclareGraphicsRule{.tif}{png}{.png}{convert #1 \OutputFile}
 \AppendGraphicsExtensions{.tif}
 
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usetikzlibrary{calc}
