@@ -118,15 +118,23 @@ Workers in principle can be have more than one register during a given month (\h
 
 Our main analysis is performed using panel data. The treatment in our context is being registered for the RPCI and is a staggered treatment. The workers register to the RPCI once and have access to their personalized reports all months after they register. Workers can register for the RPCI at any month following the launch, such that we observe treatment cohorts.
 
-To evaluate the causal treatment effect of registering to the RPCI, we perform a difference-in-difference analysis. Recent literature has raised concerns in the equivalence between two way fixed effects specifications and difference-in-difference estimators. When we have more than two periods in our data, and several treatment cohorts, TWFE estimators may be biased: the estimator could be a weighted average of the ATE's where some of the weights are negative under not so rare cases, such as heterogeneous treatment effects across treatment cohorts. Several authors have proposed alternative specifications such as \hl{cite}. 
+To evaluate the causal treatment effect of registering to the RPCI, we perform a difference-in-difference analysis using a two way fixed effects specification. Recent literature has raised concerns in the equivalence between two way fixed effects specifications and difference-in-difference estimators. When we have more than two periods in our data, and several treatment cohorts, TWFE estimates may be misleading: the estimate could be a weighted average of the ATE's where some of the weights are negative under not so rare cases, such as heterogeneous treatment effects across treatment cohorts over time. Several authors have proposed alternative specifications to address this issue. 
 
-For our main tables, we use a TWFE specification following \cite{wooldridge2021two}, where we add linear trend fixed effects by interacting a set of dummies for each quarterly period with dummies on worker's baseline characteristics and cohort. This allows the specification flexibility to address possible heterogeneous treatment effects, as well as relaxing the parallel trends assumption to a parallel trends assumption conditional on covariates and time trends. The extended TWFE follows the equation:
+For our main tables, we show the simple TWFE specification and an extended TWFE specification following \cite{wooldridge2021two}, where we add linear trend fixed effects by interacting a set of dummies for each quarterly period with dummies on worker's baseline characteristics and cohort. This allows the specification flexibility to address possible heterogeneous treatment effects, as well as relaxing the parallel trends assumption to a parallel trends assumption conditional on covariates and linear time trends. The extended TWFE follows the equation:
 
-$$ y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} + \mathrm{X_i}\cdot\Pi_t +\epsilon_{it} $$
+\begin{equation}
+    y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} + \mathrm{X_i}\cdot\Pi_t +\epsilon_{it}
+\end{equation}
 
 where $y_{it}$ is the outcome variable for worker $i$ during period $t$, $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month, $\Pi_t$ are a set of dummies for each quarterly period, and $\mathbf{X_i}$ are dummies on worker's baseline characteristics (age group, firm industry, state, wage decile) and treatment cohort.
 
-For the event studies, we use the estimators proposed by \cite{de2020two}. In the appendix, we peform robustness checks by also using the estimators proposed by \hl{citar santa anna, abraham, sun}, and comparing them to the event studies obtained from the TWFE specification.
+In order to test for parallel trends and study the dynamics of treatment effects, we estimate event studies using a TWFE specification with dummies for each period foward and before registering for the RPCI, as well as the estimators proposed by \cite{de2020two}. For the TWFE estimates, we estimate the following specification:
+
+\begin{equation}
+    y_{it} = \gamma_{i} + \theta_{t}+ \beta_{k} \times \sum RPCI_{it} +\epsilon_{it}
+\end{equation}
+
+In the appendix, we perform robustness checks by also using the estimators proposed by \cite{callaway2021difference} and \cite{sun2021estimating}, comparing them to the event studies obtained from the TWFE specification. We also construct a table with the average treatment effect obtained by all of these specifications and compare it to the estimate obtained from the TWFE specification.
 
 \section{Experimental Design} \label{Experiment}
 
@@ -136,11 +144,11 @@ For the event studies, we use the estimators proposed by \cite{de2020two}. In th
 
 \section{Observational Analysis} \label{observational}
 
-\subsection{Workers}
+\subsection{Workers} \label{subsec:workers}
 
-We perform an analysis on the causal effect of registering for the RPCI on workers' outcomes. The first outcomes we look at are enrollment and wages. The workers panel data allows us to know if a worker $i$ had a register at IMSS during period $t$, and with which wage was the worker registered with. We create dummy a variable, \textit{Enrolled}, where 1 means the worker had a register during a given period. We also have information on the workers' registered wages, but this is conditional on them being registered at IMSS. If a worker is discharged, we don't observe their wage and have a missing on this variable. Since registering for the RPCI has an effect on the probability of being enrolled (the extensive margin), the effect on wages could be biased. To address this, we create another variable which is well defined for all periods, \textit{Formal Wage}, which the same as the registered wage, except it is a 0 instead of a missing value if the worker isn't registered at IMSS during a given period. 
+We perform an analysis on the causal effect of registering for the RPCI on workers' outcomes. The first outcomes we look at are enrollment and wages. The workers panel data allows us to know if a worker $i$ was enrolled at IMSS during period $t$, and with which wage the worker was enrolled with. We create dummy a variable, \textit{Enrolled}, where 1 means the worker had was enrolled at IMSS during a given period. We also have information on the workers' reported wages, but this is conditional on them being enrolled at IMSS. If a worker is discharged, we don't observe their wage and have a missing on this variable. Since registering for the RPCI has an effect on the probability of being enrolled (the extensive margin), the effect on wages could be biased. To address this, we create another variable which is well defined for all periods, \textit{Formal Wage}, which the same as the reported wage, except it is a 0 instead of a missing value if the worker isn't enrolled at IMSS during a given period. 
 
-Table \ref{tab:twfe_rpci} shows the estimators obtained with the extended TWFE specification. We find a positive treatment effect on being enrolled, meaning workers which register for the RPCI have an increased probability of being enrolled at IMSS compared to those workers that didn't register for the RPCI.
+Table \ref{tab:twfe_rpci} shows the estimates obtained with both the simple and the extended TWFE specification. We find a positive treatment effect on being enrolled, meaning workers which register for the RPCI have an increased probability of being enrolled at IMSS compared to those workers that didn't register for the RPCI. We also observe a positive treatment effect of registering for the RPCI on wages. This effect appears in both \textit{Formal Wage} and \textit{Wage}, and persists even after adding the linear time trends fixed effects on the workers' baseline characteristics and treatment cohort. 
 
 \clearpage
 
@@ -354,20 +362,39 @@ This leads to a matched sample with $N$ pairs.
 
 \subsection{TWFE}
 
-
 \begin{table}[H]
+\footnotesize
 \centering
 \begin{threeparttable}
 \centering
 \caption{RPCI effect on enrollment and wages\label{tab:twfe_rpci}}
 %\textit{Do file: twfe_rpci.do}
 
-\begin{tabular}[t]{@{}l@{}l}
+\begin{tabular}[t]{@{}l@{}l@{}l@{}l}
 \toprule
 \toprule
-\begin{tabular}[t]{lcH}
-& Enrolled & \\
+\begin{tabular}[t]{lcc}
+& \multicolumn{2}{c}{Enrolled} \\
+\midrule
 \input 03_Tables/muestra_1porciento/twfe_alta
+\end{tabular}
+&
+\begin{tabular}[t]{Hcc}
+& \multicolumn{2}{c}{Formal Wage} \\
+\midrule
+\input 03_Tables/muestra_1porciento/twfe_sal_formal
+\end{tabular}
+&
+\begin{tabular}[t]{Hcc}
+& \multicolumn{2}{c}{Wage$^\dagger$} \\
+\midrule
+\input 03_Tables/muestra_1porciento/twfe_sal_cierre
+\end{tabular}
+&
+\begin{tabular}[t]{Hcc}
+& \multicolumn{2}{c}{Log Wage$^\dagger$} \\
+\midrule
+\input 03_Tables/muestra_1porciento/twfe_log_sal_cierre
 \end{tabular}
 \tabularnewline 
 \bottomrule
@@ -376,12 +403,11 @@ This leads to a matched sample with $N$ pairs.
 
 \begin{tablenotes}
 \setlength\labelsep{0pt}
-\footnotesize
-\item \textit{Notes}: This table shows the effect of registering to the RPCI on enrollment and the worker's wage. \textit{Sample:} panel data for a random sample of the workers registered at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Enrolled} is a dummy variable where 1 means worker $i$ was registered at IMSS during period $t$. \textit{Formal Wage}, \textit{Wage} and \textit{Log Wage} are the registered wage for worker $i$ during period $t$, the difference is \textit{Formal Wage} is 0 when the worker isn't registered, while \textit{Wage} and \textit{Log Wage} are missing when the worker isn't registered. Regressions use the extended TWFE specification following \cite{wooldridge2021two}, $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} + \mathrm{X_i}\cdot\Pi_t +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends, by interacting a set of dummies for each quarterly period ($\Pi_t)$ with dummies on worker's baseline characteristics and cohort ($\mathrm{X_i}$): age group, firm industry, state, wage decile, and cohort. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\scriptsize
+\item \textit{Notes}: This table shows the effect of registering to the RPCI on enrollment and the worker's wage. \textit{Sample:} Panel data for a random sample of the workers enrolled at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Enrolled} is a dummy variable where 1 means worker $i$ was enrolled at IMSS during period $t$. $\dagger$ \textit{Formal Wage}, \textit{Wage} and \textit{Log Wage} are the registered wage for worker $i$ during period $t$, the difference is \textit{Formal Wage} is 0 when the worker isn't enrolled, while \textit{Wage} and \textit{Log Wage} are missing when the worker isn't enrolled. Regressions use the extended TWFE specification following \cite{wooldridge2021two}, $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI_{it} + \mathrm{X_i}\cdot\Pi_t +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each monthly period, and $RPCI_{it}$ are dummies where 1 means that the worker registered for the RPCI during that month or previous month. Regressions include fixed effects on linear trends, by interacting a set of dummies for each quarterly period ($\Pi_t)$ with dummies on worker's baseline characteristics and cohort ($\mathrm{X_i}$): age group, firm industry, state, wage decile, and cohort. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
-
 
 \clearpage
 
