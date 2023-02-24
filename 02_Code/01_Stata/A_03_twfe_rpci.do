@@ -99,9 +99,9 @@ foreach depvar in `vars' {
 	estadd local cohort_fe = "\checkmark"
 	
 	
-	esttab using "03_Tables/$muestra/twfe_`depvar'.tex", replace b(`dec_b') se(`dec_se') $stars nomtitle ///
+	esttab using "03_Tables/$muestra/twfe_`depvar'.tex", replace b(`dec_b') se(`dec_se') $stars nolines nomtitle ///
 	stats(N dep_mean unique_idnss unique_idrfc l_fe age_fe industry_fe state_fe decile_fe cohort_fe, ///
-	labels("Observations" "Dep. Var. Mean" "Workers" "Firms" "\midrule \emph{Linear Time Trends FE}" ///
+	labels("\midrule Observations" "Dep. Var. Mean" "Workers" "Firms" "\midrule \emph{Linear Time Trends FE}" ///
 	"\hspace{0.25cm}Age" "\hspace{0.25cm}Industry" "\hspace{0.25cm}State" "\hspace{0.25cm}Wage Decile" "\hspace{0.25cm}Cohort") ///
 	fmt(%12.0fc %12.`dec_b'fc %12.0fc %12.0fc %15s %15s %15s %15s %15s %15s))
 	eststo clear
