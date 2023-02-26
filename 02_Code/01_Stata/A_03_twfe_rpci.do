@@ -48,7 +48,7 @@ foreach depvar in `vars' {
 	***************
 	
 	eststo: reghdfe `depvar' rpci_vig, ///
-	absorb(periodo idnss) ///
+	absorb(periodo_monthly idnss) ///
 	cluster(idnss)
 	gen reg_sample = [e(sample) == 1]
 	
@@ -75,8 +75,8 @@ foreach depvar in `vars' {
 	*****************************************************************
 
 	eststo: reghdfe `depvar' rpci_vig, ///
-	absorb(periodo idnss i.base_rango#i.periodo_quarter i.base_div_final#i.periodo_quarter ///
-	i.base_cve_ent_final#i.periodo_quarter i.base_sal_decile#i.periodo_quarter i.download_monthly#i.periodo_quarter) ///
+	absorb(periodo_monthly idnss i.base_rango##i.periodo_quarter i.base_div_final##i.periodo_quarter ///
+	i.base_cve_ent_final##i.periodo_quarter i.base_sal_decile##i.periodo_quarter i.download_monthly##i.periodo_quarter) ///
 	cluster(idnss)
 	replace reg_sample = [e(sample) == 1]
 	

@@ -110,7 +110,7 @@ use "01_Data/02_Clean/clean_panel_rpci.dta", clear
 
 
 * Create baseline variable for numeric variables
-* Get the mean valye of the last available observations (January 2021 & 2020).
+* Get the mean value of the last available observations (January 2021 & 2020).
 
 * Baseline mean wage
 bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020 | periodo == 202101
@@ -140,8 +140,8 @@ replace base_outsourcing = round(base_outsourcing)
 
 
 * Create baseline variable for numeric categoric variables
-* Keep the values of the last available observation from January 2021 and backwards
-bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idregistro !=. & periodo_year <= 2020
+* Keep the values of the last available observation between January 2020 and January 2021
+bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idregistro !=. & periodo_monthly <= tm(2021m1) & periodo_monthly >= tm(2020m1)
 
 * Baseline modality variable
 bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
@@ -160,7 +160,7 @@ bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta
 bysort idnss: egen base_rango = max(base_rango_aux)
 
 * Baseline firm size group
-bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_size_cierre = max(base_size_cierre_aux)
 
 * Resort database
