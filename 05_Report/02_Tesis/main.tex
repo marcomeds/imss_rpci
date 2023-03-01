@@ -417,7 +417,7 @@ This leads to a matched sample with $N$ pairs.
 
 \clearpage
 
-\subsection{TWFE}
+\subsection{RPCI effect on enrollment and wages}
 
 \begin{table}[H]
 \footnotesize
@@ -427,23 +427,23 @@ This leads to a matched sample with $N$ pairs.
 \caption{RPCI effect on enrollment and wages\label{tab:dcdh_rpci}}
 %\textit{Do file: event_study_rpci.do}
 
-\begin{tabular}[t]{@{}l@{}l@{}l}
+\begin{tabularx}{0.75\textwidth}[t]{@{}l@{}l@{}l}
 \toprule
 \toprule
-\begin{tabular}[t]{lcc}
-& \multicolumn{2}{c}{Enrolled} \\
+\begin{tabular}[t]{p{0.2\textwidth}P{0.15\textwidth}}
+& Enrolled \\
 \midrule
 \input 03_Tables/muestra_1porciento/dcdh_alta
 \end{tabular}
 &
-\begin{tabular}[t]{Hcc}
-& \multicolumn{2}{c}{Formal Wage} \\
+\begin{tabular}[t]{HP{0.15\textwidth}}
+& Formal Wage \\
 \midrule
 \input 03_Tables/muestra_1porciento/dcdh_sal_formal
 \end{tabular}
 &
-\begin{tabular}[t]{Hcc}
-& \multicolumn{2}{c}{Wage$^\dagger$} \\
+\begin{tabular}[t]{HP{0.15\textwidth}}
+& Wage$^\dagger$ \\
 \midrule
 \input 03_Tables/muestra_1porciento/dcdh_sal_cierre
 \end{tabular}
@@ -452,7 +452,7 @@ This leads to a matched sample with $N$ pairs.
 \bottomrule
 \bottomrule
 
-\end{tabular}
+\end{tabularx}
 
 \begin{tablenotes}
 \setlength\labelsep{0pt}
