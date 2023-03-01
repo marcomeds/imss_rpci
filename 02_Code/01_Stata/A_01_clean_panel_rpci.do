@@ -54,6 +54,9 @@ gen periodo_t = periodo_monthly - tm(2020m1)
 
 drop periodo_st
 
+* Keep observations till February 2022, one year after the RPCI was launched
+keep if periodo_monthly <= tm(2022m2)
+
 * Create monthly & quarterly download dates
 gen download_date = date(fecha, "DMY")
 format download_date %td
