@@ -103,7 +103,11 @@
 %para esconder columnas en tablas (enrique)
 \usepackage{array}
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+%columnas con fixed width, pero centradas
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \linespread{1.25}
+
+\usepackage{tabularx}
 
 \newcommand{\wh}{\widehat}
 \usepackage{anyfontsize}
