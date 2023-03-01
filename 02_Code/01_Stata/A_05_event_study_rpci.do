@@ -137,7 +137,7 @@ foreach depvar in `vars' {
 	}
 	
 	esttab using "03_Tables/$muestra/dcdh_`depvar'.tex", replace $stars nomtitle nolines ///
-	cells("b_dcdh(fmt(%12.`dec_b'fc))" "se_dcdh(fmt(%`num_se'.`dec_se'fc) star pvalue(p_dcdh) par)") ///
+	cells("b_dcdh(fmt(%12.`dec_b'fc) star pvalue(p_dcdh))" "se_dcdh(fmt(%`num_se'.`dec_se'fc) par)") ///
 	stats(obs obs_switch dep_mean, ///
 	labels("\midrule Observations" "Switchers" "Dep. Var. Mean") ///
 	fmt(%12.0fc %12.0fc %12.`dec_b'fc))

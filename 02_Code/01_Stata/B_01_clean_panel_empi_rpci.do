@@ -50,6 +50,9 @@ gen periodo_t = periodo_monthly - tm(2020m1)
 
 drop periodo_st
 
+* Keep observations till February 2022, one year after the RPCI was launched
+keep if periodo_monthly <= tm(2022m2)
+
 * Create monthly & quarterly download dates
 gen download_date = date(fecha, "DMY")
 format download_date %td
@@ -96,56 +99,57 @@ use "01_Data/02_Clean/clean_panel_empi_rpci.dta", clear
 
 
 * Create baseline variable for numeric variables
+* Get the mean value of the last available observations (January 2021 & 2020).
 
 * Baseline mean wage
-bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020
+bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_sal_cierre = max(base_sal_cierre_aux)
 xtile base_sal_decile = base_sal_cierre, nq(10)
 
 * Baseline wage standard deviation
-bysort idnss: egen base_sal_cierre_sd_aux = sd(sal_cierre) if periodo_year == 2020
+bysort idnss: egen base_sal_cierre_sd_aux = sd(sal_cierre) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_sal_cierre_sd = max(base_sal_cierre_sd_aux)
 replace base_sal_cierre_sd = 0 if missing(base_sal_cierre_sd) & !missing(base_sal_cierre)
 
 * Baseline eventual job dummy
-bysort idnss: egen base_te_aux = mean(te) if periodo_year == 2020
+bysort idnss: egen base_te_aux = mean(te) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_te = max(base_te_aux)
 replace base_te = round(base_te)
 
 * Baseline government job dummy
-bysort idnss: egen base_gobierno_aux = mean(gobierno) if periodo_year == 2020
+bysort idnss: egen base_gobierno_aux = mean(gobierno) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_gobierno = max(base_gobierno_aux)
 replace base_gobierno = round(base_gobierno)
 
 * Baseline outsourcing job dummy
-bysort idnss: egen base_outsourcing_aux = mean(outsourcing) if periodo_year == 2020
+bysort idnss: egen base_outsourcing_aux = mean(outsourcing) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_outsourcing = max(base_outsourcing_aux)
 replace base_outsourcing = round(base_outsourcing)
 
 
 
 * Create baseline variable for numeric categoric variables
-* Keep the values of the last available observation from 2020 and backwards
-bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idreg !=. & periodo_year <= 2020
+* Keep the values of the last available observation between January 2020 and January 2021
+bysort idnss: egen base_periodo_alta = max(periodo_monthly) if idreg !=. & periodo_monthly <= tm(2021m1) & periodo_monthly >= tm(2020m1)
 
 * Baseline modality variable
-*bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+*bysort idnss: gen base_mod_aux = mod if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 *bysort idnss: egen base_mod = max(base_mod_aux)
 
 * Baseline state variable
-bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_cve_ent_final_aux = cve_ent_final if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_cve_ent_final = max(base_cve_ent_final_aux)
 
 * Baseline industry variable
-bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_div_final_aux = div_final if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_div_final = max(base_div_final_aux)
 
 * Baseline age group
-bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_rango_aux = rango if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_rango = max(base_rango_aux)
 
 * Baseline firm size group
-bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta < tm(2021m1)
+bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_size_cierre = max(base_size_cierre_aux)
 
 * Resort database
@@ -195,12 +199,26 @@ gen log_sal_cierre = log(sal_cierre)
 * Filter the database *
 ***********************
 
-* Drop observations for periods before the RPCI launch
-drop if periodo_monthly <= tm(2021m1)
+* Keep observations for 2020, 2021 & 2022
+keep if periodo_year >= 2020
 
 
 * Drop auxiliar dummies
 drop *_aux base_periodo_alta
+
+
+
+*******************
+* Label variables *
+*******************
+
+* Labels
+label var rpci "\$Register_{it}\$"
+label var rfc_rpci_dum "\$Register_{jt}\$"
+label var perc_rpci_exclu "\$Register_{jt}\$ (\%)"
+label var rpci_vig "\$RPCI_{it}\$"
+label var rfc_rpci_vig_dum "\$RPCI_{jt}\$"
+label var perc_rpci_vig_exclu "\$RPCI_{jt}\$ (\%)"
 
 * Save as panel_rpci.dta
 save "01_Data/03_Working/panel_empi_rpci.dta", replace
