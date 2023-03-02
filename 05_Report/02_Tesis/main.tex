@@ -180,7 +180,7 @@ where:
     \item $y_{it}$ is a yearly outcome, such as the wage standard deviation, the number of wage changes, raises or cuts during year $t$.
     \item $\gamma_{i}$ are dummies for each worker id.
     \item $\theta_{t}$ are dummies for each yearly period.
-    \item $RPCI\ Vig_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during year $t$ or before.
+    \item $RPCI\ Vig_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during year $t$ or before.
 \end{itemize}
 
 \begin{table}[H]
@@ -235,8 +235,8 @@ $$RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$$
 where:
 
 \begin{itemize}
-    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$
-    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$
+    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
 \end{itemize}
 
 \begin{table}[H]
@@ -249,7 +249,7 @@ where:
 \end{table}
 
 \scriptsize{
-\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 
 \normalsize
 
@@ -266,9 +266,9 @@ $$RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$$
 where:
 
 \begin{itemize}
-    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$.
-    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
-    \item $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+    \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$.
+    \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
+    \item $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
 \end{itemize}
 
 \begin{table}[H]
@@ -281,7 +281,7 @@ where:
 \end{table}
 
 \scriptsize{
-\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered to the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$, and $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered to the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$, and $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 
 \normalsize
 
@@ -433,19 +433,19 @@ This leads to a matched sample with $N$ pairs.
 \begin{tabular}[t]{p{0.2\textwidth}P{0.15\textwidth}}
 & Enrolled \\
 \midrule
-\input 03_Tables/muestra_1porciento/dcdh_alta
+\input 03_Tables/muestra_10porciento/dcdh_alta
 \end{tabular}
 &
 \begin{tabular}[t]{HP{0.15\textwidth}}
 & Formal Wage \\
 \midrule
-\input 03_Tables/muestra_1porciento/dcdh_sal_formal
+\input 03_Tables/muestra_10porciento/dcdh_sal_formal
 \end{tabular}
 &
 \begin{tabular}[t]{HP{0.15\textwidth}}
 & Wage$^\dagger$ \\
 \midrule
-\input 03_Tables/muestra_1porciento/dcdh_sal_cierre
+\input 03_Tables/muestra_10porciento/dcdh_sal_cierre
 \end{tabular}
 
 \tabularnewline 
@@ -458,6 +458,85 @@ This leads to a matched sample with $N$ pairs.
 \setlength\labelsep{0pt}
 \scriptsize
 \item \textit{Notes}: This table shows the effect of registering to the RPCI on enrollment and the worker's wage. \textit{Sample:} Panel data for a random sample of the workers enrolled at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Enrolled} is a dummy variable where 1 means worker $i$ was enrolled at IMSS during period $t$. $\dagger$ \textit{Formal Wage} and \textit{Wage} are the registered wage for worker $i$ during period $t$, the difference is \textit{Formal Wage} is 0 when the worker isn't enrolled, while \textit{Wage} is missing when the worker isn't enrolled. The coefficient displayed is the average treatment effect estimated following \cite{de2020two}, using the robust dynamic option to account for possible heterogeneous treatment effects across cohorts. The number of observations are the number of differences of the outcome and of the treatment used in the estimation. The effect is the average effect of the treatment across the switchers. Switchers is the number of switchers this effect applies to. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+
+\subsection{RPCI effect on wage changes}
+
+\begin{table}[H]
+\footnotesize
+\centering
+\begin{threeparttable}
+\centering
+\caption{RPCI effect on wage changes\label{tab:dcdh_wage_changes_rpci}}
+%\textit{Do file: yearly_volatility_rpci.do}
+
+\begin{tabularx}{0.75\textwidth}[t]{@{}l@{}l@{}l}
+\toprule
+\toprule
+\begin{tabular}[t]{p{0.2\textwidth}P{0.15\textwidth}}
+& Wage Changes \\
+\midrule
+\input 03_Tables/muestra_10porciento/dcdh_sal_diff_yr
+\end{tabular}
+&
+\begin{tabular}[t]{HP{0.15\textwidth}}
+& Wage Raises \\
+\midrule
+\input 03_Tables/muestra_10porciento/dcdh_sal_mayor_yr
+\end{tabular}
+&
+\begin{tabular}[t]{HP{0.15\textwidth}}
+& Wage Cuts \\
+\midrule
+\input 03_Tables/muestra_10porciento/dcdh_sal_menor_yr
+\end{tabular}
+
+\tabularnewline 
+\bottomrule
+\bottomrule
+
+\end{tabularx}
+
+\begin{tablenotes}
+\setlength\labelsep{0pt}
+\scriptsize
+\item \textit{Notes}: This table shows the effect of registering to the RPCI on wage changes per year. \textit{Sample:} Panel data for a random sample of the workers enrolled at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Wage Changes} counts the number of changes in the reported wage at IMSS of worker $i$ during year $t$. \textit{Wage Raises} counts the number of wage changes where the wage increased and \textit{Wage Cuts} counts the number of wage changes where the wage decreased. The coefficient displayed is the treatment effect on the year after being treated estimated following \cite{de2020two}. The number of observations are the number of differences of the outcome and of the treatment used in the estimation. The effect is the average effect of the treatment across the switchers. Switchers is the number of switchers this effect applies to. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+
+\subsection{RPCI register spillover}
+
+\begin{table}[H]
+\footnotesize
+\centering
+\begin{threeparttable}
+\centering
+\caption{RPCI register spillover\label{tab:peer_rpci}}
+%\textit{Do file: peer_rpci.do}
+
+\begin{tabular}[t]{lcccc}
+\toprule
+\toprule
+& \multicolumn{4}{c}{$Register_{it}$} \\
+\midrule
+\input 03_Tables/muestra_1porciento/peer_rpci
+
+\bottomrule
+\bottomrule
+
+\end{tabular}
+
+\begin{tablenotes}
+\setlength\labelsep{0pt}
+\scriptsize
+\item \textit{Notes}: This table shows the correlation between registers for the RPCI within firms. \textit{Sample:} workers registered at a random sample of firms registered at the Mexican Institute of Social Security (IMSS) during January 2021, before the RPCI launch. \textit{Register$_{it}$} is a dummy variable which is 1 if the worker $i$ registered for the RPCI during period $t$. \textit{Register$_{jt}$} is a dummy which is 1 if at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{Register$_{jt}$ (\%)} is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{RPCI$_{jt}$} and \textit{RPCI$_{jt}$ (\%)} are the cumulative versions, meaning the register for the RPCI was during or before period $t$. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
