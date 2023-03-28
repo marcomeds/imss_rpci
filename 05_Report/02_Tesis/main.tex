@@ -114,9 +114,9 @@ Wage under reporting happens at different extents, and some workers are aware of
 
 \section{Data}
 
-We use administrative data on worker's records from IMSS. For our analysis, we have three databases, two for the observational analysis and one for the experimental analysis. For the observational analysis, we have two data sets. The first data set is a monthly panel data for a random sample of workers registered at IMSS during January 2021, before the RPCI launch. The data set follows the workers from January 2018 to \hl{decide the final period for the data}. It includes variables on the worker's register, such as the worker's wage, industry, age group, firm, job modality, and state. It also contains a variable on when the worker registers for the RPCI. We will refer to this data set as the worker panel data. The second data set are panel data for all the workers registered at a random sample of firms registered at IMSS during January 2021, before the RPCI launch, and includes the same variables as the first data set. This second data set allows us to test hypothesis about within firm effects, since we observe all the workers registered at the firm during each period. We will refer to this data set as the firm panel data.
+We use administrative data on worker's records from IMSS. For our analysis, we have three databases, two for the observational analysis and one for the experimental analysis. For the observational analysis, we have two data sets. The first data set is a monthly panel data for a random sample of workers registered at IMSS during January 2021, one month before the RPCI launch. The data set follows the workers from January 2018 to February 2022. It includes variables on the worker's register, such as the worker's wage, industry, age group, firm, job modality, and state. It also contains a variable on when the worker registers for the RPCI. We will refer to this data set as the worker panel data. The second data set are panel data for all the workers registered at a random sample of firms registered at IMSS during January 2021, before the RPCI launch, and includes the same variables as the first data set. This second data set allows us to test hypothesis about within firm effects, since we observe all the workers registered at the firm during each period. We will refer to this data set as the firm panel data.
 
-The third data set is for our experimental analysis. We performed an experiment during \hl{la fecha de los correos}, where we randomized workers to receive an email with a survey about IMSS and an invitation to download the RPCI. We had a pure control group which didn't receive email, a control group which received the email and survey, but wasn't invited to download the RPCI, and a treatment group which received the email with both the survey and the invitation. For workers that answered the survey \hl{incluir numero de respuestas}, we have an identical data set as the first two data sets, which follows this workers from January 2018 to \hl{decide the final period for the data}, and includes variables on the worker's register, such as the worker's wage, industry, age group, firm. We will refer to this data set as the experiment panel data.
+The third data set is for our experimental analysis. We performed an experiment during \hl{la fecha de los correos}, where we randomized workers to receive an email with a survey about IMSS and an invitation to download the RPCI. We had a pure control group which didn't receive email, a control group which received the email and survey, but wasn't invited to download the RPCI, and a treatment group which received the email with both the survey and the invitation. For workers that answered the survey \hl{incluir numero de respuestas}, we have an identical data set as the first two data sets, which follows this workers from January 2018 to February 2022, and includes variables on the worker's register, such as the worker's wage, industry, age group, firm. We will refer to this data set as the experiment panel data.
 
 Apart from the administrative data, we have data obtained through the survey we performed in the experiment. The survey included questions on the wage the worker earns and the wage the worker thinks is registered at IMSS. It also includes questions to test the worker's level of knowledge about IMSS. This allows us to look into the gaps between the wage reported by the worker, the wage reported by the firm to IMSS, and the worker's expectation about the wage reported by the firm to IMSS. We will refer to this data set as the survey data.
 
@@ -164,11 +164,11 @@ Figure \ref{fig:event_study_rpci} shows the event studies using the extended TWF
 
 \clearpage
 
-\subsection{Effect on Wage Volatility}
+\subsection{Effect on Wage Volatility} \label{subsec:wage_changes}
 
 \textbf{Q: Does registering for the RPCI lowers (yearly) wage volatility?}
 \\
-\textbf{A: No, it increases the yearly wage SD (around 11\% of the baseline mean), and increases the number of wage changes (1.6\% of the baseline mean). The increase on wage changes come from more wage raises, and has no effect on the number of wage cuts.}
+\textbf{A: No, it increases the number of wage changes per year. Though this is mainly driven by more raises than cuts.}
 
 Specification:
 
@@ -183,50 +183,15 @@ where:
     \item $RPCI\ Vig_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during year $t$ or before.
 \end{itemize}
 
-\begin{table}[H]
-    \caption{RPCI effect on wage volatility}
-    \label{sal_cierre_sd_rpci}
-    \begin{center}
-    \scriptsize{\input{03_Tables/muestra_10porciento/twfe_sal_yr}}
-    %\textit{Do file: sal_cierre_sd_rpci.do}
-    \end{center}
-\end{table}
-
-\scriptsize{
-\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between 2018 and 2021. \textit{Wage SD} is the yearly wage standard deviation during year $t$. \textit{Wage Changes}, \textit{Wage Raises} and \textit{Wage Cuts} are the number of wage changes, raises and cuts during year $t$. Regressions use the TWFE specification $y_{it} = \gamma_{i} + \theta_{t}+ \beta RPCI\ Vig_{it} +\epsilon_{it}$, where $\gamma_{i}$ are dummies for each worker id, $\theta_{t}$ are dummies for each yearly period, and $RPCI\ Vig_{it}$ are dummies where 1 means that the worker registered for the RPCI during that year or before. Regressions include fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each yearly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
-
-\normalsize
+Table \ref{tab:dcdh_wage_changes_rpci} shows that there is an increase in the number of wage changes per year after registering for the RPCI. This increase in the number of wages comes from mainly an increased number of wage raises, but also some increased number of wage cuts. 
 
 \clearpage
 
-Event Study: Yearly Wage Standard Deviation
-
-\begin{figure}[H]
-    \caption{Event studies - RPCI effect on wage volatility}
-    \label{event_study_sal_cierre_sd_yr}
-    \begin{center}
-    
-    \begin{subfigure}{0.49\textwidth}
-    \caption{Wage SD}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sd_yr_chaisemartin.pdf}
-    \end{subfigure}
-    
-    %\textit{Do file: sal_cierre_sd_yr.do}
-    \end{center}
-\end{figure}
-\scriptsize{
-\noindent \textit{Sample:} 10\% of the workers registered at the Mexican Institute of Social Security (IMSS) between 2018 and 2021. The graphs use the estimators proposed by Chaisemartin and D'Haultfoeuille to prevent posible negative weights in the Difference in Differences estimators. The figure x-axis are the years relative to the treatment or RPCI launch (2021).
-}
-
-\normalsize
-
-\clearpage
-
-\subsection{Peer Effects} \label{peer}
+\subsection{Peer Effects} \label{subsec:peer}
 
 \textbf{Q: Does having someone in my firm register to the RPCI make me more likely to register?}
 \\
-\textbf{A: Yes, it increases the baseline mean by 50\%.}
+\textbf{A: Yes.}
 
 Specification:
 
@@ -238,22 +203,6 @@ where:
     \item $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$
     \item $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
 \end{itemize}
-
-\begin{table}[H]
-    \caption{Peer effect on the probability of registering to RPCI}
-    \label{peer_rpci_rfc_rpci_dum}
-    \begin{center}
-    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_rfc_rpci_dum}}
-    %\textit{Do file: peer_effects_empi_rpci.do}
-    \end{center}
-\end{table}
-
-\scriptsize{
-\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
-
-\normalsize
-
-\clearpage
 
 \textbf{Q: Does having more people in my firm register to the RPCI make me more likely to register?}
 \\
@@ -271,60 +220,9 @@ where:
     \item $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$.
 \end{itemize}
 
-\begin{table}[H]
-    \caption{Peer effect on the probability of registering to RPCI}
-    \label{peer_rpci_rfc_rpci_dum}
-    \begin{center}
-    \scriptsize{\input{03_Tables/muestra_10porciento/peer_rpci_rfc_rpci_dum_perc_rpci_exclu}}
-    %\textit{Do file: peer_effects_empi_rpci.do}
-    \end{center}
-\end{table}
-
-\scriptsize{
-\noindent \textit{Sample:} Monthly panel data between January 2018 and October 2022 for all the workers registered at a random sample of 10\% of the firms registered at the Mexican Institute of Social Security (IMSS) during February 2021 (the month the RPCI was launched). Regressions use the specification $RPCI_{it} = \alpha + \beta RPCI_{jt} + \gamma Perc RPCI_{jt} + \epsilon_{it}$, where $RPCI_{it}$ is a dummy where 1 means the worker $i$ registered for the RPCI during period $t$, $RPCI_{jt}$ is a dummy where 1 means that at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$, and $PercRPCI_{jt}$ is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. Column (2) include period fixed effects. Column (3) is a TWFE specification that includes period and worker id fixed effects. Column (4) is a TWFE specification that includes period and worker id fixed effects, as well as fixed effects on linear trends for age group, firm industry, state and wage decile, by interacting dummies on worker's baseline characteristics with a set of dummies for each quarterly period. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
-
-\normalsize
+Table \ref{tab:peer_rpci} shows the result from such regressions. The table shows a high correlation both for the cumulative and instant registers at my firm during period $t$. The table also shows that this correlation is mainly driven by the percentage of coworkers that for the RPCI at my firm.
 
 \clearpage
-
-\section{Experimental Analysis} \label{experiment}
-
-\subsection{Matching} \label{matching}
-We perform matching using nearest neighbor matching with replacement and bias-adjustment, procedure developed by \cite{abadie2006large} as described by \cite{imbens2015matching}. We match using worker characteristics at baseline such as gender, age range, their mean wage and the wage standard deviation during 2020, temporary status, outsourcing status, and characteristics of the firm at their baseline job, such as if their job was in a government agency, firm size, firm industry and state. 
-
-We calculate the distance between two values of the covariate vector $x$ and $x'$, using the Mahalonobis distance metric and the sample covariance matrix of covariates as weighting matrix: $\lVert x,x' \rVert = (x-x')'\hat{\Omega}^{-1}_{X}(x-x')$. Now for each worker $i = 1, \dots, N$ in the sample, let $\ell(i)$ be the index for the closest match, defined as:
-
-$$\ell(i) = \arg \min_{j:W_j \neq W_i} = \rVert X_i - X_j \lVert$$ 
-
-where we take the first match in case of ties (we set a seed and randomize the order of the observations before matching to get a stable match). Given $\ell(i)$ define:
-
-$$\hat{Y}_i(0) = 
-\begin{cases}
-Y_{i}^{obs} &\quad \text{if } W_i = 0\\ 
-Y_{\ell(i)} &\quad \text{if } W_i = 1
-\end{cases}
-\quad \quad
-\hat{Y}_i(1) = 
-\begin{cases}
-Y_{\ell(i)} &\quad \text{if } W_i = 0\\ 
-Y_{i}^{obs} &\quad \text{if } W_i = 1
-\end{cases}$$
-
-Define the matched values for the covariates:
-
-$$\hat{X}_i(0) = 
-\begin{cases}
-X_{i} &\quad \text{if } W_i = 0\\ 
-X_{\ell(i)} &\quad \text{if } W_i = 1
-\end{cases}
-\quad \quad
-\hat{X}_i(1) = 
-\begin{cases}
-X_{\ell(i)} &\quad \text{if } W_i = 0\\ 
-X_{i} &\quad \text{if } W_i = 1
-\end{cases}$$
-
-This leads to a matched sample with $N$ pairs.
 
 \section{Conclusion} \label{conclusion}
 
@@ -504,7 +402,7 @@ This leads to a matched sample with $N$ pairs.
 \begin{tablenotes}
 \setlength\labelsep{0pt}
 \scriptsize
-\item \textit{Notes}: This table shows the effect of registering to the RPCI on wage changes per year. \textit{Sample:} Panel data for a random sample of the workers enrolled at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Wage Changes} counts the number of changes in the reported wage at IMSS of worker $i$ during year $t$. \textit{Wage Raises} counts the number of wage changes where the wage increased and \textit{Wage Cuts} counts the number of wage changes where the wage decreased. The coefficient displayed is the treatment effect on the year after being treated estimated following \cite{de2020two}. The number of observations are the number of differences of the outcome and of the treatment used in the estimation. The effect is the average effect of the treatment across the switchers. Switchers is the number of switchers this effect applies to. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
+\item \textit{Notes}: This table shows the effect of registering to the RPCI on wage changes per year. \textit{Sample:} Panel data for a random sample of the workers enrolled at the Mexican Institute of Social Security (IMSS) during January 2021 (before the RPCI launch). \textit{Wage Changes} counts the number of changes in the reported wage at IMSS of worker $i$ during year $t$. \textit{Wage Raises} counts the number of wage changes where the wage increased and \textit{Wage Cuts} counts the number of wage changes where the wage decreased. The coefficient displayed is the treatment effect on the year after being treated estimated following \cite{de2020two}. The number of observations are the number of differences of the outcome and of the treatment used in the estimation. The effect is the average effect of the treatment across the switchers. Switchers is the number of switchers this effect applies to. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:wage_changes]{Section} \ref{subsec:wage_changes}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -526,7 +424,7 @@ This leads to a matched sample with $N$ pairs.
 \toprule
 & \multicolumn{4}{c}{$Register_{it}$} \\
 \midrule
-\input 03_Tables/muestra_1porciento/peer_rpci
+\input 03_Tables/muestra_10porciento/peer_rpci
 
 \bottomrule
 \bottomrule
@@ -536,7 +434,7 @@ This leads to a matched sample with $N$ pairs.
 \begin{tablenotes}
 \setlength\labelsep{0pt}
 \scriptsize
-\item \textit{Notes}: This table shows the correlation between registers for the RPCI within firms. \textit{Sample:} workers registered at a random sample of firms registered at the Mexican Institute of Social Security (IMSS) during January 2021, before the RPCI launch. \textit{Register$_{it}$} is a dummy variable which is 1 if the worker $i$ registered for the RPCI during period $t$. \textit{Register$_{jt}$} is a dummy which is 1 if at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{Register$_{jt}$ (\%)} is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{RPCI$_{jt}$} and \textit{RPCI$_{jt}$ (\%)} are the cumulative versions, meaning the register for the RPCI was during or before period $t$. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:workers]{Section} \ref{subsec:workers}.
+\item \textit{Notes}: This table shows the correlation between registers for the RPCI within firms. \textit{Sample:} workers registered at a random sample of firms registered at the Mexican Institute of Social Security (IMSS) during January 2021, before the RPCI launch. \textit{Register$_{it}$} is a dummy variable which is 1 if the worker $i$ registered for the RPCI during period $t$. \textit{Register$_{jt}$} is a dummy which is 1 if at least one worker other than worker $i$ registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{Register$_{jt}$ (\%)} is the percentage of workers other than worker $i$ that registered for the RPCI at firm $j$ (the firm worker $i$ is a registered employee) during period $t$. \textit{RPCI$_{jt}$} and \textit{RPCI$_{jt}$ (\%)} are the cumulative versions, meaning the register for the RPCI was during or before period $t$. Robust standard errors clustered by worker id in parenthesis. *** $p<0.01$, ** $p<0.05$, * $p<0.1$. This table is referenced in \hyperref[subsec:peer]{Section} \ref{subsec:peer}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -758,13 +656,6 @@ This leads to a matched sample with $N$ pairs.
 \end{figure}
 \scriptsize{\textit{Notes}: This figure shows answers to questions about IMSS and wage reporting from the worker survey. \textit{Sample:} \hl{num survey answers} answers from a survey conducted via email to workers enrolled at IMSS during August 2021. Questions 1-2, about the worker's employer, included the option "I don't know". Questions 3-5 ask about the worker's actions or knowledge didn't include the option "I don't know".  This figure is referenced in \hyperref[sec:context]{Section} \ref{sec:context}.}
 
-\begin{figure}[H]
-    \centering
-    \caption{Beliefs on wage under reporting vs. actual wage under reporting \label{fig:hist_perc_sal_survey}}
-    \includegraphics[width=\textwidth]{04_Figures/worker_survey/hist_perc_sal_survey.pdf}
-\end{figure}
-\scriptsize{\textit{Notes}: This figure shows the difference between believed wage under reporting and actual wage under eporting. \textit{Sample:} \hl{num survey answers} answers from a survey conducted via email to workers enrolled at IMSS during August 2021. The survey included one question on the worker's wage and one question on the wage the worker believed their employer had reported to IMSS. The actual reported wages come from IMSS data. Wage under reporting occurs when the reported wage is lower than the worker's wage. The figure plots the histograms for wage under reporting (percentages lower or equal to 1), using the worker's belief as percentage of their wage against the actual reported wage as percentage of their wage. This figure is referenced in \hyperref[sec:context]{Section} \ref{sec:context}.}
-
 \clearpage
 
 \subsection{Event studies}
@@ -775,20 +666,16 @@ This leads to a matched sample with $N$ pairs.
     
     \begin{subfigure}{0.49\textwidth}
     \caption{Effect on being enrolled}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_connected.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_dcdh_connected.pdf}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
     \caption{Effect on formal wage}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_connected.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_dcdh_connected.pdf}
     \end{subfigure}
     
     \begin{subfigure}{0.49\textwidth}
-    \caption{Effect on wage}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_connected.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-    \caption{Effect on log wage}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_connected.pdf}
+    \caption{Effect on wage$^\dagger$}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_dcdh_connected.pdf}
     \end{subfigure}
     
     %\textit{Do file: event_study_rpci.do}
