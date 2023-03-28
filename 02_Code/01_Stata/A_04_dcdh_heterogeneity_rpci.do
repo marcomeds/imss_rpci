@@ -125,7 +125,7 @@ foreach dep_var in `vars' {
 	
 	
 	* Event study	   
-	event_plot mat1_dcdh#mat2_dcdh, stub_lag(Effect_#) stub_lead(Placebo_#) ///
+	event_plot e(didmgt_estimates)#e(didmgt_variances), stub_lag(Effect_#) stub_lead(Placebo_#) ///
 	       together plottype("scatter") trimlead(12) trimlag(12) ///
 		   graph_opt(xline(-0.5, lcolor(gs8) lpattern(dash)) yline(0, lcolor(gs8)) ///
 		   graphregion(color(white)) xlabel(-12(2)12) xsize(7.5) ///
@@ -136,7 +136,7 @@ foreach dep_var in `vars' {
 	graph export "04_Figures/$muestra/event_study_`depvar'_`het_var'_dcdh.pdf", replace
 	
 	* Connected event study	   
-	event_plot mat1_dcdh#mat2_dcdh, stub_lag(Effect_#) stub_lead(Placebo_#) ///
+	event_plot e(didmgt_estimates)#e(didmgt_variances), stub_lag(Effect_#) stub_lead(Placebo_#) ///
 		   together trimlead(12) trimlag(12) ///
 		   graph_opt(xline(-0.5, lcolor(gs8) lpattern(dash)) yline(0, lcolor(gs8)) ///
 		   graphregion(color(white)) xlabel(-12(2)12) xsize(7.5) ///
@@ -147,7 +147,7 @@ foreach dep_var in `vars' {
 	graph export "04_Figures/$muestra/event_study_`depvar'_`het_var'_dcdh_connected.pdf", replace
 	
 	* Connected event study	- paper
-	event_plot mat1_dcdh#mat2_dcdh, stub_lag(Effect_#) stub_lead(Placebo_#) ///
+	event_plot e(didmgt_estimates)#e(didmgt_variances), stub_lag(Effect_#) stub_lead(Placebo_#) ///
 		   together trimlead(24) trimlag(12) ///
 		   graph_opt(xline(-0.5, lcolor(gs8) lpattern(dash)) yline(0, lcolor(gs8)) ///
 		   graphregion(color(white)) xlabel(-24(2)12) xsize(7.5) ///

@@ -81,7 +81,7 @@ foreach depvar in `vars' {
 		   graphregion(color(white)) xlabel(-2(1)0) xsize(7.5) ///
 		   xtitle("Years since registering for the RPCI") ytitle("Average effect") ///
 		   title("")) ///
-		   lag_opt1(msymbol(O) color("255 211 32")) lag_ci_opt1(color("255 211 32"))
+		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134"))
 
 	graph export "04_Figures/$muestra/event_study_`depvar'_dcdh.pdf", replace
 	
@@ -92,7 +92,7 @@ foreach depvar in `vars' {
 		   graphregion(color(white)) xlabel(-2(1)0) xsize(7.5) ///
 		   xtitle("Years since registering for the RPCI") ytitle("Average effect") ///
 		   title("")) ///
-		   lag_opt1(msymbol(O) color("255 211 32")) lag_ci_opt1(color("255 211 32 %45"))
+		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134 %45"))
 
 	graph export "04_Figures/$muestra/event_study_`depvar'_dcdh_connected.pdf", replace
 }

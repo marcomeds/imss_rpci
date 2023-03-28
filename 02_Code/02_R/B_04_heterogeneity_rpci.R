@@ -172,7 +172,8 @@ ggplot(data %>% filter(hetero_var != "65+ years old", type %in% c("Worker charac
   coord_flip() +
   labs(x = "Heterogeneity variable",
        y = "Average effect") +
-  theme_calc()
+  theme_calc() +
+  theme(plot.background = element_blank())
 
 ggsave("04_Figures/muestra_10porciento/dcdh_heterogeneity_worker_characteristics.pdf",
        width = 12,
@@ -205,11 +206,87 @@ ggplot(data %>% filter(hetero_var != "65+ years old", !(type %in% c("Worker char
   coord_flip() +
   labs(x = "Heterogeneity variable",
        y = "Average effect") +
-  theme_calc()
+  theme_calc() +
+  theme(plot.background = element_blank())
 
 ggsave("04_Figures/muestra_10porciento/dcdh_heterogeneity_firm_characteristics.pdf",
        width = 12,
        height = 7)
+
+## Paper Graphs without log wage -----------------------------------------------
+
+# Worker Characteristics
+ggplot(data %>% filter(hetero_var != "65+ years old",
+                       type %in% c("Worker characteristics",
+                                   "Worker age",
+                                   "Worker wage in min. wages"),
+                       var != "Log Wage"),
+       aes(x = hetero_var, y = b, color = type, alpha = signif)) +
+  facet_wrap(~var,
+             ncol = 4,
+             scales = "free_x") + 
+  geom_point(aes(shape = type), size = 2) +
+  geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci, size = signif), width = 0.3) +
+  geom_hline(yintercept = 0, color = "black", alpha = 0.75, lty = 2) +
+  scale_color_manual(name = "Heterogeneity type",
+                     values = c("#004586", "#ff420e", "#579d1c")) +
+  scale_shape_manual(name = "Heterogeneity type",
+                     values = c(16, 15, 17)) +
+  scale_size_discrete(name = "Coefficient significance",
+                      range = c(0.6, 0.9)) +
+  scale_alpha_discrete(name = "Coefficient significance",
+                       range = c(0.5, 1)) +
+  guides(color = guide_legend(order = 1),
+         shape = guide_legend(order = 1),
+         size = guide_legend(order = 2),
+         alpha = guide_legend(order = 2)) +
+  coord_flip() +
+  labs(x = "Heterogeneity variable",
+       y = "Average effect") +
+  theme_calc() +
+  theme(plot.background = element_blank())
+
+ggsave("04_Figures/muestra_10porciento/dcdh_heterogeneity_worker_characteristics_paper.pdf",
+       width = 12,
+       height = 5)
+
+
+# Firm Characteristics
+ggplot(data %>% filter(hetero_var != "65+ years old",
+                       !(type %in% c("Worker characteristics",
+                                     "Worker age",
+                                     "Worker wage in min. wages")),
+                       var != "Log Wage"),
+       aes(x = hetero_var, y = b, color = type, alpha = signif)) +
+  facet_wrap(~var,
+             ncol = 4,
+             scales = "free_x") + 
+  geom_point(aes(shape = type), size = 2) +
+  geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci, size = signif), width = 0.3) +
+  geom_hline(yintercept = 0, color = "black", alpha = 0.75, lty = 2) +
+  scale_color_manual(name = "Heterogeneity type",
+                     values = c("#004586", "#ff420e", "#579d1c", "#ff950e")) +
+  scale_shape_manual(name = "Heterogeneity type",
+                     values = c(16, 15, 17, 18)) +
+  scale_size_discrete(name = "Coefficient significance",
+                      range = c(0.6, 0.9)) +
+  scale_alpha_discrete(name = "Coefficient significance",
+                       range = c(0.5, 1)) +
+  guides(color = guide_legend(order = 1),
+         shape = guide_legend(order = 1),
+         size = guide_legend(order = 2),
+         alpha = guide_legend(order = 2)) +
+  coord_flip() +
+  labs(x = "Heterogeneity variable",
+       y = "Average effect") +
+  theme_calc() +
+  theme(plot.background = element_blank())
+
+ggsave("04_Figures/muestra_10porciento/dcdh_heterogeneity_firm_characteristics_paper.pdf",
+       width = 12,
+       height = 7)
+
+
 
 
          
