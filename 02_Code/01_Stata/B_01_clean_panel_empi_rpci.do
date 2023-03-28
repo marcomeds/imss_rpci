@@ -51,7 +51,7 @@ gen periodo_t = periodo_monthly - tm(2020m1)
 drop periodo_st
 
 * Keep observations till February 2022, one year after the RPCI was launched
-keep if periodo_monthly <= tm(2022m2)
+keep if periodo_monthly <= tm(2022m3)
 
 * Create monthly & quarterly download dates
 gen download_date = date(fecha, "DMY")
@@ -193,7 +193,15 @@ gen rfc_rpci_dum = [perc_rpci_exclu != 0]
 * Create log_sal_cierre
 gen log_sal_cierre = log(sal_cierre)
 
+* Reorder the database
+sort idnss periodo
 
+* Create lagged variables
+gen idnss_aux = idnss[_n-1]
+gen rfc_rpci_dum_lag = rfc_rpci_dum[_n-1] if idnss_aux == idnss
+gen perc_rpci_exclu_lag = perc_rpci_exclu[_n-1] if idnss_aux == idnss
+gen rfc_rpci_vig_dum_lag = rfc_rpci_vig_dum[_n-1] if idnss_aux == idnss
+gen perc_rpci_vig_exclu_lag = perc_rpci_vig_exclu[_n-1] if idnss_aux == idnss
 
 ***********************
 * Filter the database *
@@ -208,17 +216,29 @@ drop *_aux base_periodo_alta
 
 
 
+
 *******************
 * Label variables *
 *******************
 
 * Labels
-label var rpci "\$Register_{it}\$"
-label var rfc_rpci_dum "\$Register_{jt}\$"
-label var perc_rpci_exclu "\$Register_{jt}\$ (\%)"
-label var rpci_vig "\$RPCI_{it}\$"
-label var rfc_rpci_vig_dum "\$RPCI_{jt}\$"
-label var perc_rpci_vig_exclu "\$RPCI_{jt}\$ (\%)"
+label var rpci "Register\$_{it}\$"
+
+label var rfc_rpci_dum "Register\$_{jt}\$"
+label var rfc_rpci_dum_lag "Register\$_{j(t-1)}\$"
+
+label var perc_rpci_exclu "Register\$_{jt}\$ (\%)"
+label var perc_rpci_exclu_lag "Register\$_{j(t-1)}\$ (\%)"
+
+label var rpci_vig "RPCI\$_{it}\$"
+
+label var rfc_rpci_vig_dum "RPCI\$_{jt}\$"
+label var rfc_rpci_vig_dum_lag "RPCI\$_{j(t-1)}\$"
+
+label var perc_rpci_vig_exclu "RPCI\$_{jt}\$ (\%)"
+label var perc_rpci_vig_exclu_lag "RPCI\$_{j(t-1)}\$ (\%)"
 
 * Save as panel_rpci.dta
 save "01_Data/03_Working/panel_empi_rpci.dta", replace
+
+

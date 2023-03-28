@@ -86,3 +86,4 @@ gen perc_wage_rep_exact = wage_daily_exact / wage_daily_reported_approx
 
 * Save database
 save "01_Data/03_Working/worker_survey.dta", replace
+export delimited using "01_Data/03_Working/worker_survey.csv", delim("|") replace

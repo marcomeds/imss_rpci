@@ -24,9 +24,9 @@ if "`user'" == "Marco Remote" {
 }
 
 
-do "02_Code/01_Stata/A_01_clean_panel_rpci.do"
-do "02_Code/01_Stata/A_03_twfe_rpci.do"
-do "02_Code/01_Stata/A_05_event_study_rpci.do"
+*do "02_Code/01_Stata/A_01_clean_panel_rpci.do"
+*do "02_Code/01_Stata/A_03_twfe_rpci.do"
+*do "02_Code/01_Stata/A_05_event_study_rpci.do"
 
 *do "02_Code/01_Stata/A_03_twfe_wage_rpci.do"
 *do "02_Code/01_Stata/A_03_twfe_job_rpci.do"

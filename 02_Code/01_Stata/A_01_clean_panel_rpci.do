@@ -55,7 +55,7 @@ gen periodo_t = periodo_monthly - tm(2020m1)
 drop periodo_st
 
 * Keep observations till February 2022, one year after the RPCI was launched
-keep if periodo_monthly <= tm(2022m2)
+keep if periodo_monthly <= tm(2022m3)
 
 * Create monthly & quarterly download dates
 gen download_date = date(fecha, "DMY")
@@ -93,9 +93,13 @@ destring size_cierre, replace
 gsort idnss periodo_monthly -sal_cierre te outsourcing -dias
 duplicates drop idnss periodo_monthly, force
 
-* Keep workers that were registered at IMSS during January 2021 (a month before the RPCI launch)
-gen muestra_aux = [periodo == 202101 & idregistro != .]
-bysort idnss: egen muestra = max(muestra_aux)
+* Keep workers that were registered at IMSS during 2020 or January 2021 (a month before the RPCI launch)
+*gen muestra_aux = [periodo == 202101 & idregistro != . | periodo_year == 2020 & idregistro != .]
+*gen muestra_aux = [periodo == 202101 & idregistro != .]
+*bysort idnss: egen muestra = max(muestra_aux)
+
+gen muestra_aux = [idregistro != .] if periodo_year == 2020 | periodo == 202101
+bysort idnss: egen muestra = min(muestra_aux)
 keep if muestra == 1
 drop muestra
 
@@ -119,6 +123,10 @@ use "01_Data/02_Clean/clean_panel_rpci.dta", clear
 bysort idnss: egen base_sal_cierre_aux = mean(sal_cierre) if periodo_year == 2020 | periodo == 202101
 bysort idnss: egen base_sal_cierre = max(base_sal_cierre_aux)
 xtile base_sal_decile = base_sal_cierre, nq(10)
+
+* Baseline last wage
+bysort idnss: egen base_sal_last_aux = mean(sal_cierre) if periodo == 202101
+bysort idnss: egen base_sal_last = max(base_sal_last_aux)
 
 * Baseline wage standard deviation
 bysort idnss: egen base_sal_cierre_sd_aux = sd(sal_cierre) if periodo_year == 2020 | periodo == 202101
@@ -165,6 +173,32 @@ bysort idnss: egen base_rango = max(base_rango_aux)
 * Baseline firm size group
 bysort idnss: gen base_size_cierre_aux = size_cierre if periodo_monthly == base_periodo_alta & base_periodo_alta <= tm(2021m1)
 bysort idnss: egen base_size_cierre = max(base_size_cierre_aux)
+
+
+* Create a variable that indicates if the municipality is at ZLFN (zona libre de la frontrera norte)
+* Note: inlist only accepts 10 strings
+gen base_frontera_aux = [inlist(cve_mun_final, "A05", "Y94", "A06", "A07", "A08", ///
+						"E71", "E70", "Y44", "E59")] if periodo_monthly == tm(2021m1)
+						
+replace base_frontera_aux = 1 if inlist(cve_mun_final, "E57", "X24", "E68", "X46", "Q03", ///
+								 "E56", "M94", "A90", "Y77") & periodo_monthly == tm(2021m1)
+								 
+replace base_frontera_aux = 1 if inlist(cve_mun_final, "A97", "A94", "R39", "H80", "R40", ///
+								 "L73", "A18", "A43", "A25") & periodo_monthly == tm(2021m1)
+								 
+replace base_frontera_aux = 1 if inlist(cve_mun_final, "A32", "A30", "A24", "M68", "P10", ///
+								 "E97", "E90", "E95", "E96") & periodo_monthly == tm(2021m1)
+								 
+replace base_frontera_aux = 1 if inlist(cve_mun_final, "E86", "E91", "F01", "F02", "F04", "E94") & periodo_monthly == tm(2021m1)
+
+bysort idnss: egen base_frontera = max(base_frontera_aux)
+
+* Create the minimum wage variable at baseline (January 2021)
+gen base_sal_min = 141.7
+replace base_sal_min = 213.39 if base_frontera == 1
+
+* Create a variable about the baseline (last) wage (January 2021) as the number of times the baseline minimum wage
+gen base_num_sal_min = floor(base_sal_last / base_sal_min)
 
 * Resort database
 gsort idnss periodo_monthly

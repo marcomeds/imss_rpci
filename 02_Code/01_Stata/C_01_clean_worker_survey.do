@@ -8,7 +8,7 @@
 @In: - Empleados_Tratamiento.csv
 	 - Empleados_Control.csv
 	 
-@Out: worker_survey.dta
+@Out: clean_worker_survey.dta
 *******************************************************************************/
 
 ********************
@@ -282,17 +282,17 @@ rename aux wage_frequency
 
 destring wage_daily* wage_weekly* wage_biweekly* wage_monthly*, replace force
 
-gen wage_monthly_approx = .
-replace wage_monthly_approx = wage_monthly if wage_monthly != .
-replace wage_monthly_approx = wage_biweekly*2 if wage_biweekly !=.
-replace wage_monthly_approx = wage_weekly*4 if wage_weekly !=.
-replace wage_monthly_approx = wage_daily*30 if wage_daily !=.
+gen wage_daily_approx = .
+replace wage_daily_approx = wage_monthly/28 if wage_monthly != .
+replace wage_daily_approx = wage_biweekly/14 if wage_biweekly !=.
+replace wage_daily_approx = wage_weekly/7 if wage_weekly !=.
+replace wage_daily_approx = wage_daily if wage_daily !=.
 
-gen wage_monthly_reported_approx = .
-replace wage_monthly_reported_approx = wage_monthly_reported if wage_monthly_reported != .
-replace wage_monthly_reported_approx = wage_biweekly_reported*2 if wage_biweekly_reported !=.
-replace wage_monthly_reported_approx = wage_weekly_reported*4 if wage_weekly_reported !=.
-replace wage_monthly_reported_approx = wage_daily_reported*30 if wage_daily_reported !=.
+gen wage_daily_reported_approx = .
+replace wage_daily_reported_approx = wage_daily_reported/28 if wage_monthly_reported != .
+replace wage_daily_reported_approx = wage_biweekly_reported/14 if wage_biweekly_reported !=.
+replace wage_daily_reported_approx = wage_weekly_reported/7 if wage_weekly_reported !=.
+replace wage_daily_reported_approx = wage_daily_reported if wage_daily_reported !=.
 
 
 * This is a randomized pair of questions with multiple answers.
@@ -413,27 +413,5 @@ duplicates drop idnss, force
 
 * Save database
 save "01_Data/02_Clean/clean_worker_survey.dta", replace
-
-
-
-*******************
-* Create features *
-*******************
-
-* Survey Date 
-gen survey_created = clock(date_created, "MDY hms")
-gen survey_date = dofc(survey_created)
-format survey_date %td
-drop survey_created
-
-* Complete Survey
-* Note: the last question of control & treatment surveys is different
-gen complete_survey_control = [treatment == 0 & used_private_medical_service != .]
-gen complete_survey_treat = [treatment == 1 & knows_can_sue != .]
-gen complete_survey = [complete_survey_treat == 1 | complete_survey_control == 1]
-drop complete_survey_control complete_survey_treat
-
-* Save database
-save "01_Data/03_Working/worker_survey.dta", replace
 
 
