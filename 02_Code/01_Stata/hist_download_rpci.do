@@ -29,7 +29,7 @@ duplicates drop idnss, force
 bysort download_monthly: gen downloads = _N
 
 * Drop september observations, since they are incomplete
-drop if download_monthly == tm(2022m9)
+*drop if download_monthly == tm(2022m9)
 
 * Keep one observation per month and sum cumulative downloads
 duplicates drop download_monthly, force

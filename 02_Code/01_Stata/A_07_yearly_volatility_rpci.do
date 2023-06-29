@@ -42,7 +42,9 @@ local vars sal_cierre_sd_yr sal_diff_yr sal_mayor_yr sal_menor_yr
 foreach depvar in `vars' {
 	
 	* did_multiplegt specification
-	did_multiplegt `depvar' download_year periodo_year treatment if periodo_year <= 2021, ///
+	*did_multiplegt `depvar' download_year periodo_year treatment if periodo_year <= 2021, ///
+	*		   placebo(2) breps(250) cluster(idnss) seed(541314)
+	did_multiplegt `depvar' idnss periodo_year treatment if periodo_year <= 2021, ///
 			   placebo(2) breps(250) cluster(idnss) seed(541314)
 			   
 	* Create matrix

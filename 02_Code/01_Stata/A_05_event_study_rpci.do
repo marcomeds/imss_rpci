@@ -18,36 +18,39 @@ cd "$directory"
 set graphics off
 ********************
 
+* Use panel_rpci.dta
+use "01_Data/03_Working/panel_rpci.dta", clear
+compress
+
+* Keep relevant variables
+keep idnss rpci_vig sexo periodo_monthly periodo_t download_monthly treated time_since_treated ///
+	base_rango base_div_final base_cve_ent_final base_sal_decile ///
+	alta sal_formal sal_cierre log_sal_cierre cambio_cierre sal_diff
+	
+* Save the event_study database
+save "01_Data/03_Working/event_study_rpci.dta", replace
+	
+* Make time_since_treated positive for the dummies in the event study regression
+summ time_since_treated
+local increment = r(min)
+local omitted =  - r(min) - 1 // the omitted dummy is time_since_treated == -1
+replace time_since_treated = time_since_treated - `increment' // make the variable positive
+xi i.time_since_treated, noomit
+disp `omitted'
+drop _Itime_sinc_`omitted' // drop the omitted dummy
+recode _Itime_sinc_* (. = 0) if treated == 0 // make the dummies 0 for controls
+
+* Save the event_study database for reghdefe
+save "01_Data/03_Working/event_study_rpci_reghdfe.dta", replace
+
 * Define variables
 local vars alta sal_formal sal_cierre log_sal_cierre cambio_cierre sal_diff //
 
 foreach depvar in `vars' {
 	
-	* Use panel_rpci.dta
-	*use "01_Data/03_Working/panel_rpci.dta", clear
+
+	* Use the compressed event_study_rpci_reghdfe.dta
 	use "01_Data/03_Working/event_study_rpci_reghdfe.dta", clear
-	compress
-	
-	* Keep relevant variables
-	*keep idnss rpci_vig sexo periodo_monthly periodo_t download_monthly treated time_since_treated ///
-	*	base_rango base_div_final base_cve_ent_final base_sal_decile ///
-	*	alta sal_formal sal_cierre log_sal_cierre cambio_cierre sal_diff
-
-	********
-	* TWFE *
-	********
-
-	*preserve
-
-// 	* Make time_since_treated positive for the dummies in the event study regression
-// 	summ time_since_treated
-// 	local increment = r(min)
-// 	local omitted =  - r(min) - 1 // the omitted dummy is time_since_treated == -1
-// 	replace time_since_treated = time_since_treated - `increment' // make the variable positive
-// 	xi i.time_since_treated, noomit
-// 	disp `omitted'
-// 	drop _Itime_sinc_`omitted' // drop the omitted dummy
-// 	recode _Itime_sinc_* (. = 0) if treated == 0 // make the dummies 0 for controls
 	
 	***************
 	* Simple TWFE *
@@ -161,8 +164,6 @@ foreach depvar in `vars' {
 		   
 	graph export "04_Figures/$muestra/event_study_`depvar'_etwfe_connected_paper.pdf", replace
 	
-	
-	*restore
 
 	
 	
@@ -171,12 +172,12 @@ foreach depvar in `vars' {
 	********************************************
 
 	use "01_Data/03_Working/event_study_rpci.dta", clear
-	compress
-	*preserve
 	
 	* did_multiplegt specification
 	did_multiplegt `depvar' download_monthly periodo_monthly rpci_vig, ///
 			   first robust_dynamic dynamic(12) placebo(24) breps(250) cluster(idnss) seed(541314)
+	*did_multiplegt `depvar' idnss periodo_monthly rpci_vig, ///
+	*		   first robust_dynamic dynamic(12) placebo(24) breps(250) cluster(idnss) seed(541314)
 			   
 	* Create matrix
 	matrix define mat1_dcdh = e(didmgt_estimates)
@@ -268,8 +269,7 @@ foreach depvar in `vars' {
 		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134 %45"))
 
 	graph export "04_Figures/$muestra/event_study_`depvar'_dcdh_connected_paper.pdf", replace
-		   
-	*restore
+	
 
 		   
 
@@ -350,8 +350,6 @@ foreach depvar in `vars' {
 		   lag_opt1(msymbol(O) color("255 66 14")) lag_ci_opt1(color("255 66 14 %45"))
 
 	graph export "04_Figures/$muestra/event_study_`depvar'_sa_connected_paper.pdf", replace
-		   
-	*restore
 	
 	
 		   

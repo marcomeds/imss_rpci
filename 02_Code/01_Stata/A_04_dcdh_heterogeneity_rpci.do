@@ -119,6 +119,8 @@ foreach dep_var in `vars' {
 	
 	did_multiplegt `dep_var' download_monthly periodo_monthly rpci_vig if `het_var', ///
 				   first robust_dynamic dynamic(12) placebo(24) breps(250) cluster(idnss) seed(541314)
+	*did_multiplegt `dep_var' idnss periodo_monthly rpci_vig if `het_var', ///
+	*			   first robust_dynamic dynamic(12) placebo(24) breps(250) cluster(idnss) seed(541314)
 				   
 	mat `dep_var'_b_dcdh  = nullmat(`dep_var'_b_dcdh), e(effect_average)
 	mat `dep_var'_se_dcdh = nullmat(`dep_var'_se_dcdh), e(se_effect_average)
@@ -133,7 +135,7 @@ foreach dep_var in `vars' {
 		   title("")) ///
 		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134"))
 
-	graph export "04_Figures/$muestra/event_study_`depvar'_`het_var'_dcdh.pdf", replace
+	graph export "04_Figures/$muestra/event_study_`dep_var'_`het_var'_dcdh.pdf", replace
 	
 	* Connected event study	   
 	event_plot e(didmgt_estimates)#e(didmgt_variances), stub_lag(Effect_#) stub_lead(Placebo_#) ///
@@ -144,7 +146,7 @@ foreach dep_var in `vars' {
 		   title("")) ///
 		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134 %45"))
 
-	graph export "04_Figures/$muestra/event_study_`depvar'_`het_var'_dcdh_connected.pdf", replace
+	graph export "04_Figures/$muestra/event_study_`dep_var'_`het_var'_dcdh_connected.pdf", replace
 	
 	* Connected event study	- paper
 	event_plot e(didmgt_estimates)#e(didmgt_variances), stub_lag(Effect_#) stub_lead(Placebo_#) ///
@@ -155,7 +157,7 @@ foreach dep_var in `vars' {
 		   title("")) ///
 		   lag_opt1(msymbol(O) color("0 69 134")) lag_ci_opt1(color("0 69 134 %45"))
 
-	graph export "04_Figures/$muestra/event_study_`depvar'_`het_var'_dcdh_connected_paper.pdf", replace
+	graph export "04_Figures/$muestra/event_study_`dep_var'_`het_var'_dcdh_connected_paper.pdf", replace
 	
 	}
 	

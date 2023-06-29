@@ -319,6 +319,7 @@ preserve
 	gen treatment = 0
 	replace treatment = 1 if download_year == 2021 & periodo_year >= 2021
 	replace treatment = 1 if download_year == 2022 & periodo_year >= 2022
+	replace treatment = 1 if download_year == 2023 & periodo_year >= 2023
 	
 	* Save yearly database as yearly_panel_rpci.dta
 	save "01_Data/03_Working/yearly_panel_rpci.dta", replace

@@ -24,8 +24,8 @@ use "01_Data/03_Working/panel_rpci.dta", clear
 * Keep only observations of treated workers
 keep if treated == 1
 
-* Keep observations after treatment & drop september 2022 cohort observations, since they are incomplete
-drop if time_since_treated < 0 | time_since_treated == 18
+* Keep observations after treatment observations
+drop if time_since_treated < 0
 
 * Count the workers observed for each time_since_treated
 bysort time_since_treated: gen treated_workers = _N
