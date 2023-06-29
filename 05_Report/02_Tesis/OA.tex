@@ -115,6 +115,8 @@
 \noindent Diagram shows how to register for the RPCI within the IMSS Digital app. The worker registers only once to access the RPCI, using his Unique Population Registry Key (CURP) and email address.
 }
 
+\begin{comment}
+
 \clearpage
 
 \begin{figure}[H]
@@ -137,6 +139,37 @@
 \scriptsize{
 \noindent Figure (a) shows the IMSS Digital app, where once the worker is registered for the RPCI, the worker can download their report in PDF or receive it via email. Figure (b) shows an example of the PDF for the RPCI. The report includes the worker job registered information, such as wage and the firm the worker is registered at.
 }
+
+\end{comment}
+
+\clearpage
+\section{ Heterogeneity event studies}
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on enrollment \label{fig:event_study_het_wrkr}}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Men}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Woman}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Effect on wage}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \caption{Effect on log wage}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: event_study_rpci.do}
+\end{figure}
+
 
 %\clearpage
 
