@@ -143,31 +143,681 @@
 \end{comment}
 
 \clearpage
-\section{ Heterogeneity event studies}
+\section{ Heterogeneity event studies by worker characteristics}
+\label{appendix_worker_char}
 
 \begin{figure}[H]
     \centering
-    \caption{Event studies - RPCI effect on enrollment \label{fig:event_study_het_wrkr}}
+    \caption{Event studies - RPCI effect on enrollment}
     
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.32\textwidth}
     \caption{Men}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_connected.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_hombre_dcdh_connected.pdf}
     \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.32\textwidth}
     \caption{Woman}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_connected.pdf}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_mujer_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Outsourcing}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_base_outsourcing_dcdh_connected.pdf}
     \end{subfigure}
     
-    \begin{subfigure}{0.49\textwidth}
-    \caption{Effect on wage}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_connected.pdf}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Eventual}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_base_te_dcdh_connected.pdf}
     \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-    \caption{Effect on log wage}
-    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_connected.pdf}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{15 to 25 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_age_15_25_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{25 to 35 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_age_25_35_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{35 to 45 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_age_35_45_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{45 to 55 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_age_45_55_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{55 to 65 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_age_55_65_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 to 2 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_sal_min_1_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2 to 3 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_sal_min_2_3_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{3 to 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_sal_min_3_5_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{More than 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_sal_min_5_dcdh_connected.pdf}
     \end{subfigure}
     
-    %\textit{Do file: event_study_rpci.do}
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on formal wage}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Men}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_hombre_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Woman}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_mujer_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Outsourcing}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_base_outsourcing_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Eventual}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_base_te_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{15 to 25 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_age_15_25_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{25 to 35 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_age_25_35_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{35 to 45 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_age_35_45_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{45 to 55 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_age_45_55_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{55 to 65 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_age_55_65_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 to 2 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_sal_min_1_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2 to 3 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_sal_min_2_3_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{3 to 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_sal_min_3_5_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{More than 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_sal_min_5_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on wage}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Men}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_hombre_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Woman}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_mujer_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Outsourcing}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_base_outsourcing_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Eventual}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_base_te_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{15 to 25 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_age_15_25_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{25 to 35 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_age_25_35_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{35 to 45 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_age_35_45_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{45 to 55 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_age_45_55_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{55 to 65 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_age_55_65_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 to 2 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sal_min_1_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2 to 3 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sal_min_2_3_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{3 to 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sal_min_3_5_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{More than 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_sal_min_5_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on log wage}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Men}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_hombre_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Woman}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_mujer_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Outsourcing}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_base_outsourcing_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Eventual}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_base_te_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{15 to 25 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_age_15_25_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{25 to 35 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_age_25_35_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{35 to 45 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_age_35_45_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{45 to 55 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_age_45_55_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{55 to 65 years old}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_age_55_65_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 to 2 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_sal_min_1_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2 to 3 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_sal_min_2_3_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{3 to 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_sal_min_3_5_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{More than 5 minimum wages}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_sal_min_5_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+\section{ Heterogeneity event studies by firm characteristics}
+\label{appendix_firm_char}
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on enrollment}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Away from MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_no_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_reg_centro_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central-West}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_reg_centro_occ_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{North}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_reg_norte_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{South-East}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_reg_sur_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Agriculture}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_agricul_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transformation}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_transf_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Construction}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_constr_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Commerce}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_commerce_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transportation \& Communication}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_transport_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Services}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_ind_services_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 worker}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_1_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2-5 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{6-50 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_6_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \ContinuedFloat
+    \caption{(Cont.) Event studies - RPCI effect on enrollment}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{51-250 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_51_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{251-500 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_251_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{501-1000 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_501_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1000+ workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_alta_size_1001_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on formal wage}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Away from MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_no_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_reg_centro_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central-West}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_reg_centro_occ_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{North}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_reg_norte_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{South-East}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_reg_sur_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Agriculture}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_agricul_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transformation}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_transf_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Construction}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_constr_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Commerce}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_commerce_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transportation \& Communication}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_transport_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Services}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_ind_services_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 worker}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_1_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2-5 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{6-50 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_6_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \ContinuedFloat
+    \caption{(Cont.) Event studies - RPCI effect on formal wage}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{51-250 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_51_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{251-500 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_251_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{501-1000 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_501_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1000+ workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_formal_size_1001_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on wages}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Away from MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_no_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_reg_centro_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central-West}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_reg_centro_occ_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{North}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_reg_norte_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{South-East}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_reg_sur_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Agriculture}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_agricul_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transformation}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_transf_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Construction}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_constr_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Commerce}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_commerce_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transportation \& Communication}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_transport_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Services}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_ind_services_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 worker}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_1_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2-5 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{6-50 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_6_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \ContinuedFloat
+    \caption{(Cont.) Event studies - RPCI effect on wages}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{51-250 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_51_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{251-500 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_251_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{501-1000 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_501_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1000+ workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_sal_cierre_size_1001_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+
+\begin{figure}[H]
+    \centering
+    \caption{Event studies - RPCI effect on log wages}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Away from MX-USA Border}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_no_frontera_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_reg_centro_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Central-West}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_reg_centro_occ_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{North}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_reg_norte_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{South-East}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_reg_sur_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Agriculture}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_agricul_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transformation}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_transf_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Construction}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_constr_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Commerce}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_commerce_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Transportation \& Communication}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_transport_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{Services}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_ind_services_dcdh_connected.pdf}
+    \end{subfigure}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1 worker}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_1_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{2-5 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_2_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{6-50 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_6_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+    \centering
+    \ContinuedFloat
+    \caption{(Cont.) Event studies - RPCI effect on log wages}
+
+    \begin{subfigure}{0.32\textwidth}
+    \caption{51-250 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_51_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{251-500 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_251_dcdh_connected.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+    \caption{501-1000 workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_501_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.32\textwidth}
+    \caption{1000+ workers}
+    \includegraphics[width=\textwidth]{04_Figures/muestra_10porciento/event_study_log_sal_cierre_size_1001_dcdh_connected.pdf}
+    \end{subfigure}
+    
+    %\textit{Do file: dcdh_heterogeneity_rpci.do}
 \end{figure}
 
 
