@@ -74,9 +74,9 @@ data_knows_imss <- rbind(data_knows_accident_insurance, data_knows_wage_impact_s
                          levels = c(-1, 0, 1),
                          labels = c("Don't know", "No", "Yes")))
 
-labels_knows_imss <- c("Did your employer enrolled you at IMSS?",
-                       "Did your employer reported your complete wage to IMSS?",
-                       "Did you talked with your employer about which wage report to IMSS?",
+labels_knows_imss <- c("Did your employer enroll you at IMSS?",
+                       "Did your employer report your complete wage to IMSS?",
+                       "Did you talk with your employer about which wage report to IMSS?",
                        "Did you know that part of your reported wage at IMSS goes to your retirment savings account?",
                        "Did you know that you have accident insurance, proportional to your reported wage at IMSS, if you're enrolled?")
 
